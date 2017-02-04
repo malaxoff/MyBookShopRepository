@@ -1,0 +1,8 @@
+    <property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
+    <property name="connection.url">jdbc:oracle:thin:@localhost:1521:XE</property>
+    <property name="connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+
+    <!-- NOTE that after automapping with IDEA property username and password will delete -->
+    <!--and will be:  Initial SessionFactory failedorg.hibernate.service.spi.ServiceException: Unable to create requested service-->
+    <property name="connection.username">system</property>
+    <property name="connection.password">3</property>

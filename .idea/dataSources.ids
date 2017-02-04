@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source source="LOCAL" name="MyOracleDB" product="Oracle" version="Oracle Database 11g Express Edition Release 11.2.0.2.0 - Production" jdbc-version="4.0" driver-name="Oracle JDBC driver" driver-version="12.1.0.2.0" uuid="57a8eab5-d39c-4a9b-9a0c-58dc2643081c">
+    <extra-name-characters>$#</extra-name-characters>
+    <identifier-quote-string>&quot;</identifier-quote-string>
+    <synchronize>true</synchronize>
+    <jdbc-driver>oracle.jdbc.OracleDriver</jdbc-driver>
+    <jdbc-url>jdbc:oracle:thin:@localhost:1521:XE</jdbc-url>
+    <user-name>system</user-name>
+    <user-password>df99</user-password>
+    <schema-pattern>*.SYSTEM</schema-pattern>
+    <libraries>
+      <library>
+        <url>file://$PROJECT_DIR$/ojdbc6.jar</url>
+      </library>
+    </libraries>
+    <schema name="SYSTEM" catalog=""/>
+    <table name="BOOKS" schema="SYSTEM" catalog="" type="TABLE">
+      <column name="BOOK_ID" sqlType="NUMBER" length="10" precision="0" nullable="false" jdbcType="3"/>
+      <column name="AUTORS" sqlType="VARCHAR2" length="200" precision="0" nullable="false" jdbcType="12"/>
+      <column name="BOOK_TITLE" sqlType="VARCHAR2" length="300" precision="0" nullable="false" jdbcType="12"/>
+      <column name="ID_PUBLISHER" sqlType="NUMBER" length="10" precision="0" nullable="false" jdbcType="3"/>
+      <column name="BOOK_DESCRIPTION" sqlType="VARCHAR2" length="1000" precision="0" nullable="true" jdbcType="12"/>
+      <column name="BOOK_PRICE" sqlType="NUMBER" length="10" precision="0" nullable="false" jdbcType="3"/>
+      <column name="BOOK_AMOUNT" sqlType="NUMBER" length="10" precision="0" nullable="true" jdbcType="3" def="MCA="/>
+      <primary-key name="SYS_C007070" columns="BOOK_ID"/>
+      <foreign-key name="SYS_C007071" columns="ID_PUBLISHER" ref-table="PUBLISHER" ref-schema="SYSTEM" ref-catalog="" ref-columns="ID_PUBLISHER" update-rule="0" delete-rule="1" deferrability="2"/>
+      <exported-key name="SYS_C007086" table="CONTENT_OF_ORDER" schema="SYSTEM" catalog="" columns="BOOK_ID"/>
+    </table>
+    <table name="CATALOG" schema="SYSTEM" catalog="" type="SYNONYM"/>
+    <table name="COL" schema="SYSTEM" catalog="" type="SYNONYM"/>
+    <table name="CONTACT" schema="SYSTEM" catalog="" type="TABLE">
+      <column name="ID" sqlType="NUMBER" length="5" precision="0" nullable="false" jdbcType="3"/>
+      <column name="FIRST_NAME" sqlType="VARCHAR2" length="60" precision="0" nullable="false" jdbcType="12"/>
+      <column name="LAST_NAME" sqlType="VARCHAR2" length="40" precision="0" nullable="false" jdbcType="12"/>
+      <column name="BIRTH_DATE" sqlType="DATE" length="7" precision="0" nullable="true" jdbcType="93"/>
+      <column name="VERSION" sqlType="NUMBER" length="5" precision="0" nullable="false" jdbcType="3" def="MCA="/>
+      <primary-key name="SYS_C007006" columns="ID"/>
+      <exported-key name="SYS_C007020" table="CONTACT_HOBBY_DETAIL" schema="SYSTEM" catalog="" columns="CONTACT_ID"/>
+      <exported-key name="SYS_C007016" table="CONTACT_TEL_DETAIL" schema="SYSTEM" catalog="" columns="CONTACT_ID"/>
+    </table>
+    <table name="CONTACT_HOBBY_DETAIL" schema="SYSTEM" catalog="" type="TABLE">
+      <column name="CONTACT_ID" sqlType="NUMBER" length="5" precision="0" nullable="false" jdbcType="3"/>
+      <column name="HOBBY_ID" sqlType="VARCHAR2" length="20" precision="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PK" columns="CONTACT_ID,HOBBY_ID"/>
+      <foreign-key name="SYS_C007020" columns="CONTACT_ID" ref-table="CONTACT" ref-schema="SYSTEM" ref-catalog="" ref-columns="ID" update-rule="0" delete-rule="0" deferrability="2"/>
+      <foreign-key name="SYS_C007021" columns="HOBBY_ID" ref-table="HOBBY" ref-schema="SYSTEM" ref-catalog="" ref-columns="HOBBY_ID" update-rule="0" delete-rule="1" deferrability="2"/>
+    </table>
+    <table name="CONTACT_TEL_DETAIL" schema="SYSTEM" catalog="" type="TABLE">
+      <column name="ID" sqlType="NUMBER" length="5" precision="0" nullable="false" jdbcType="3"/>
+      <column name="CONTACT_ID" sqlType="NUMBER" length="5" precision="0" nullable="false" jdbcType="3"/>
+      <column name="TEL_TYPE" sqlType="VARCHAR2" length="20" precision="0" nullable="false" jdbcType="12"/>
+      <column name="TEL_NUMBER" sqlType="VARCHAR2" length="20" precision="0" nullable="false" jdbcType="12"/>
+      <column name="VERSION" sqlType="NUMBER" length="5" precision="0" nullable="false" jdbcType="3" def="MCA="/>
+      <primary-key name="SYS_C007014" columns="ID"/>
+      <foreign-key name="SYS_C007016" columns="CONTACT_ID" ref-table="CONTACT" ref-schema="SYSTEM" ref-catalog="" ref-columns="ID" update-rule="0" delete-rule="1" deferrability="2"/>
+      <index name="UQ_CONTACT_TEL_DETAIL_1" unique="true" columns="CONTACT_ID,TEL_TYPE"/>
+    </table>
+    <table name="CONTENT_OF_ORDER" schema="SYSTEM" catalog="" type="TABLE">
+      <column name="ID" sqlType="NUMBER" length="20" precision="0" nullable="false" jdbcType="3"/>
+      <column name="ORDER_ID" sqlType="NUMBER" length="10" precision="0" nullable="false" jdbcType="3"/>
+      <column name="BOOK_ID" sqlType="NUMBER" length="10" precision="0" nullable="false" jdbcType="3"/>
+      <column name="AMOUNT_OF_EACH_BOOK" sqlType="NUMBER" length="3" precision="0" nullable="false" jdbcType="3"/>
+      <primary-key name="SYS_C007084" columns="ID"/>
+      <foreign-key name="SYS_C007086" columns="BOOK_ID" ref-table="BOOKS" ref-schema="SYSTEM" ref-catalog="" ref-columns="BOOK_ID" update-rule="0" delete-rule="1" deferrability="2"/>
+      <foreign-key name="SYS_C007085" columns="ORDER_ID" ref-table="ORDERS" ref-schema="SYSTEM" ref-catalog="" ref-columns="ORDER_ID" update-rule="0" delete-rule="1" deferrability="2"/>
+    </table>
+    <table name="HELP" schema="SYSTEM" catalog="" type="TABLE">
+      <column name="TOPIC" sqlType="VARCHAR2" length="50" precision="0" nullable="false" jdbcType="12"/>
+      <column name="SEQ" sqlType="NUMBER" length="0" precision="-127" nullable="false" jdbcType="3"/>
+      <column name="INFO" sqlType="VARCHAR2" length="80" precision="0" nullable="true" jdbcType="12"/>
+      <primary-key name="HELP_TOPIC_SEQ" columns="TOPIC,SEQ"/>
+    </table>
+    <table name="HOBBY" schema="SYSTEM" catalog="" type="TABLE">
+      <column name="HOBBY_ID" sqlType="VARCHAR2" length="20" precision="0" nullable="false" jdbcType="12"/>
+      <primary-key name="SYS_C007008" columns="HOBBY_ID"/>
+      <exported-key name="SYS_C007021" table="CONTACT_HOBBY_DETAIL" schema="SYSTEM" catalog="" columns="HOBBY_ID"/>
+    </table>
+    <table name="LOGMNRC_DBNAME_UID_MAP" schema="SYSTEM" catalog="" type="TABLE">
+      <column name="GLOBAL_NAME" sqlType="VARCHAR2" length="128" precision="0" nullable="false" jdbcType="12"/>
+      <column name="LOGMNR_UID" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="FLAGS" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <primary-key name="LOGMNRC_DBNAME_UID_MAP_PK" columns="GLOBAL_NAME"/>
+    </table>
+    <table name="LOGMNRC_GSBA" schema="SYSTEM" catalog="" type="TABLE">
+      <column name="LOGMNR_UID" sqlType="NUMBER" length="0" precision="-127" nullable="false" jdbcType="3"/>
+      <column name="AS_OF_SCN" sqlType="NUMBER" length="0" precision="-127" nullable="false" jdbcType="3"/>
+      <column name="FDO_LENGTH" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="FDO_VALUE" sqlType="RAW" length="255" precision="0" nullable="true" jdbcType="-3"/>
+      <column name="CHARSETID" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="NCHARSETID" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="DBTIMEZONE_LEN" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="DBTIMEZONE_VALUE" sqlType="VARCHAR2" length="64" precision="0" nullable="true" jdbcType="12"/>
+      <column name="LOGMNR_SPARE1" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="LOGMNR_SPARE2" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="LOGMNR_SPARE3" sqlType="VARCHAR2" length="1000" precision="0" nullable="true" jdbcType="12"/>
+      <column name="LOGMNR_SPARE4" sqlType="DATE" length="7" precision="0" nullable="true" jdbcType="93"/>
+      <primary-key name="LOGMNRC_GSBA_PK" columns="LOGMNR_UID,AS_OF_SCN"/>
+    </table>
+    <table name="LOGMNRC_GSII" schema="SYSTEM" catalog="" type="TABLE">
+      <column name="LOGMNR_UID" sqlType="NUMBER" length="0" precision="-127" nullable="false" jdbcType="3"/>
+      <column name="OBJ#" sqlType="NUMBER" length="0" precision="-127" nullable="false" jdbcType="3"/>
+      <column name="BO#" sqlType="NUMBER" length="0" precision="-127" nullable="false" jdbcType="3"/>
+      <column name="INDTYPE#" sqlType="NUMBER" length="0" precision="-127" nullable="false" jdbcType="3"/>
+      <column name="DROP_SCN" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="LOGMNR_SPARE1" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="LOGMNR_SPARE2" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="LOGMNR_SPARE3" sqlType="VARCHAR2" length="1000" precision="0" nullable="true" jdbcType="12"/>
+      <column name="LOGMNR_SPARE4" sqlType="DATE" length="7" precision="0" nullable="true" jdbcType="93"/>
+      <primary-key name="LOGMNRC_GSII_PK" columns="LOGMNR_UID,OBJ#"/>
+    </table>
+    <table name="LOGMNRC_GTCS" schema="SYSTEM" catalog="" type="TABLE">
+      <column name="LOGMNR_UID" sqlType="NUMBER" length="0" precision="-127" nullable="false" jdbcType="3"/>
+      <column name="OBJ#" sqlType="NUMBER" length="0" precision="-127" nullable="false" jdbcType="3"/>
+      <column name="OBJV#" sqlType="NUMBER" length="0" precision="-127" nullable="false" jdbcType="3"/>
+      <column name="SEGCOL#" sqlType="NUMBER" length="0" precision="-127" nullable="false" jdbcType="3"/>
+      <column name="INTCOL#" sqlType="NUMBER" length="0" precision="-127" nullable="false" jdbcType="3"/>
+      <column name="COLNAME" sqlType="VARCHAR2" length="30" precision="0" nullable="false" jdbcType="12"/>
+      <column name="TYPE#" sqlType="NUMBER" length="0" precision="-127" nullable="false" jdbcType="3"/>
+      <column name="LENGTH" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="PRECISION" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="SCALE" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="INTERVAL_LEADING_PRECISION" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="INTERVAL_TRAILING_PRECISION" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="PROPERTY" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="TOID" sqlType="RAW" length="16" precision="0" nullable="true" jdbcType="-3"/>
+      <column name="CHARSETID" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="CHARSETFORM" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="TYPENAME" sqlType="VARCHAR2" length="30" precision="0" nullable="true" jdbcType="12"/>
+      <column name="FQCOLNAME" sqlType="VARCHAR2" length="4000" precision="0" nullable="true" jdbcType="12"/>
+      <column name="NUMINTCOLS" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="NUMATTRS" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="ADTORDER" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="LOGMNR_SPARE1" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="LOGMNR_SPARE2" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="LOGMNR_SPARE3" sqlType="VARCHAR2" length="1000" precision="0" nullable="true" jdbcType="12"/>
+      <column name="LOGMNR_SPARE4" sqlType="DATE" length="7" precision="0" nullable="true" jdbcType="93"/>
+      <column name="LOGMNR_SPARE5" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="LOGMNR_SPARE6" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="LOGMNR_SPARE7" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="LOGMNR_SPARE8" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="LOGMNR_SPARE9" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="COL#" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="XTYPESCHEMANAME" sqlType="VARCHAR2" length="30" precision="0" nullable="true" jdbcType="12"/>
+      <column name="XTYPENAME" sqlType="VARCHAR2" length="4000" precision="0" nullable="true" jdbcType="12"/>
+      <column name="XFQCOLNAME" sqlType="VARCHAR2" length="4000" precision="0" nullable="true" jdbcType="12"/>
+      <column name="XTOPINTCOL" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="XREFFEDTABLEOBJN" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="XREFFEDTABLEOBJV" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="XCOLTYPEFLAGS" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="XOPQTYPETYPE" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="XOPQTYPEFLAGS" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="XOPQLOBINTCOL" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="XOPQOBJINTCOL" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="XXMLINTCOL" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="EAOWNER#" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="EAMKEYID" sqlType="VARCHAR2" length="64" precision="0" nullable="true" jdbcType="12"/>
+      <column name="EAENCALG" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="EAINTALG" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="EACOLKLC" sqlType="RAW" length="2000" precision="0" nullable="true" jdbcType="-3"/>
+      <column name="EAKLCLEN" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="EAFLAGS" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <primary-key name="LOGMNRC_GTCS_PK" columns="LOGMNR_UID,OBJ#,OBJV#,INTCOL#"/>
+      <index name="LOGMNRC_I2GTCS" unique="true" columns="LOGMNR_UID,OBJ#,OBJV#,SEGCOL#,INTCOL#"/>
+    </table>
+    <table name="LOGMNRC_GTLO" schema="SYSTEM" catalog="" type="TABLE">
+      <column name="LOGMNR_UID" sqlType="NUMBER" length="0" precision="-127" nullable="false" jdbcType="3"/>
+      <column name="KEYOBJ#" sqlType="NUMBER" length="0" precision="-127" nullable="false" jdbcType="3"/>
+      <column name="LVLCNT" sqlType="NUMBER" length="0" precision="-127" nullable="false" jdbcType="3"/>
+      <column name="BASEOBJ#" sqlType="NUMBER" length="0" precision="-127" nullable="false" jdbcType="3"/>
+      <column name="BASEOBJV#" sqlType="NUMBER" length="0" precision="-127" nullable="false" jdbcType="3"/>
+      <column name="LVL1OBJ#" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="LVL2OBJ#" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="LVL0TYPE#" sqlType="NUMBER" length="0" precision="-127" nullable="false" jdbcType="3"/>
+      <column name="LVL1TYPE#" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="LVL2TYPE#" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="OWNER#" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="OWNERNAME" sqlType="VARCHAR2" length="30" precision="0" nullable="false" jdbcType="12"/>
+      <column name="LVL0NAME" sqlType="VARCHAR2" length="30" precision="0" nullable="false" jdbcType="12"/>
+      <column name="LVL1NAME" sqlType="VARCHAR2" length="30" precision="0" nullable="true" jdbcType="12"/>
+      <column name="LVL2NAME" sqlType="VARCHAR2" length="30" precision="0" nullable="true" jdbcType="12"/>
+      <column name="INTCOLS" sqlType="NUMBER" length="0" precision="-127" nullable="false" jdbcType="3"/>
+      <column name="COLS" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="KERNELCOLS" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="TAB_FLAGS" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="TRIGFLAG" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="ASSOC#" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="OBJ_FLAGS" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="TS#" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="TSNAME" sqlType="VARCHAR2" length="30" precision="0" nullable="true" jdbcType="12"/>
+      <column name="PROPERTY" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="START_SCN" sqlType="NUMBER" length="0" precision="-127" nullable="false" jdbcType="3"/>
+      <column name="DROP_SCN" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="XIDUSN" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="XIDSLT" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="XIDSQN" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="FLAGS" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="LOGMNR_SPARE1" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="LOGMNR_SPARE2" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="LOGMNR_SPARE3" sqlType="VARCHAR2" length="1000" precision="0" nullable="true" jdbcType="12"/>
+      <column name="LOGMNR_SPARE4" sqlType="DATE" length="7" precision="0" nullable="true" jdbcType="93"/>
+      <column name="LOGMNR_SPARE5" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="LOGMNR_SPARE6" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="LOGMNR_SPARE7" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="LOGMNR_SPARE8" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="LOGMNR_SPARE9" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="PARTTYPE" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="SUBPARTTYPE" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="UNSUPPORTEDCOLS" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="COMPLEXTYPECOLS" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="NTPARENTOBJNUM" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="NTPARENTOBJVERSION" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="NTPARENTINTCOLNUM" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="LOGMNRTLOFLAGS" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="LOGMNRMCV" sqlType="VARCHAR2" length="30" precision="0" nullable="true" jdbcType="12"/>
+      <primary-key name="LOGMNRC_GTLO_PK" columns="LOGMNR_UID,KEYOBJ#,BASEOBJV#"/>
+      <index name="LOGMNRC_I2GTLO" unique="true" columns="LOGMNR_UID,BASEOBJ#,BASEOBJV#"/>
+      <index name="LOGMNRC_I3GTLO" unique="true" columns="LOGMNR_UID,DROP_SCN"/>
+    </table>
+    <table name="LOGMNRP_CTAS_PART_MAP" schema="SYSTEM" catalog="" type="TABLE">
+      <column name="LOGMNR_UID" sqlType="NUMBER" length="0" precision="-127" nullable="false" jdbcType="3"/>
+      <column name="BASEOBJ#" sqlType="NUMBER" length="0" precision="-127" nullable="false" jdbcType="3"/>
+      <column name="BASEOBJV#" sqlType="NUMBER" length="0" precision="-127" nullable="false" jdbcType="3"/>
+      <column name="KEYOBJ#" sqlType="NUMBER" length="0" precision="-127" nullable="false" jdbcType="3"/>
+      <column name="PART#" sqlType="NUMBER" length="0" precision="-127" nullable="false" jdbcType="3"/>
+      <column name="SPARE1" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="SPARE2" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="SPARE3" sqlType="VARCHAR2" length="1000" precision="0" nullable="true" jdbcType="12"/>
+      <primary-key name="LOGMNRP_CTAS_PART_MAP_PK" columns="LOGMNR_UID,BASEOBJV#,KEYOBJ#"/>
+      <index name="LOGMNRP_CTAS_PART_MAP_I" unique="true" columns="LOGMNR_UID,BASEOBJ#,BASEOBJV#,PART#"/>
+    </table>
+    <table name="LOGMNR_LOGMNR_BUILDLOG" schema="SYSTEM" catalog="" type="TABLE">
+      <column name="BUILD_DATE" sqlType="VARCHAR2" length="20" precision="0" nullable="true" jdbcType="12"/>
+      <column name="DB_TXN_SCNBAS" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="DB_TXN_SCNWRP" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="CURRENT_BUILD_STATE" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="COMPLETION_STATUS" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="MARKED_LOG_FILE_LOW_SCN" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="INITIAL_XID" sqlType="VARCHAR2" length="22" precision="0" nullable="false" jdbcType="12"/>
+      <column name="LOGMNR_UID" sqlType="NUMBER" length="22" precision="0" nullable="true" jdbcType="3"/>
+      <column name="LOGMNR_FLAGS" sqlType="NUMBER" length="22" precision="0" nullable="true" jdbcType="3"/>
+      <primary-key name="LOGMNR_LOGMNR_BUILDLOG_PK" columns="LOGMNR_UID,INITIAL_XID"/>
+      <index name="LOGMNR_I1LOGMNR_BUILDLOG" unique="true" columns="LOGMNR_UID,INITIAL_XID"/>
+    </table>
+    <table name="MVIEW_EVALUATIONS" schema="SYSTEM" catalog="" type="VIEW">
+      <column name="RUNID" sqlType="NUMBER" length="0" precision="-127" nullable="false" jdbcType="3"/>
+      <column name="MVIEW_OWNER" sqlType="VARCHAR2" length="30" precision="0" nullable="true" jdbcType="12"/>
+      <column name="MVIEW_NAME" sqlType="VARCHAR2" length="30" precision="0" nullable="true" jdbcType="12"/>
+      <column name="RANK" sqlType="NUMBER" length="0" precision="-127" nullable="false" jdbcType="3"/>
+      <column name="STORAGE_IN_BYTES" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="FREQUENCY" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="CUMULATIVE_BENEFIT" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="BENEFIT_TO_COST_RATIO" sqlType="NUMBER" length="0" precision="-127" nullable="false" jdbcType="3"/>
+    </table>
+    <table name="MVIEW_EXCEPTIONS" schema="SYSTEM" catalog="" type="VIEW">
+      <column name="RUNID" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="OWNER" sqlType="VARCHAR2" length="30" precision="0" nullable="true" jdbcType="12"/>
+      <column name="TABLE_NAME" sqlType="VARCHAR2" length="30" precision="0" nullable="true" jdbcType="12"/>
+      <column name="DIMENSION_NAME" sqlType="VARCHAR2" length="30" precision="0" nullable="true" jdbcType="12"/>
+      <column name="RELATIONSHIP" sqlType="VARCHAR2" length="11" precision="0" nullable="true" jdbcType="12"/>
+      <column name="BAD_ROWID" sqlType="ROWID" length="10" precision="0" nullable="true" jdbcType="-8"/>
+    </table>
+    <table name="MVIEW_FILTER" schema="SYSTEM" catalog="" type="VIEW">
+      <column name="FILTERID" sqlType="NUMBER" length="0" precision="-127" nullable="false" jdbcType="3"/>
+      <column name="SUBFILTERNUM" sqlType="NUMBER" length="0" precision="-127" nullable="false" jdbcType="3"/>
+      <column name="SUBFILTERTYPE" sqlType="VARCHAR2" length="12" precision="0" nullable="true" jdbcType="12"/>
+      <column name="STR_VALUE" sqlType="VARCHAR2" length="1028" precision="0" nullable="true" jdbcType="12"/>
+      <column name="NUM_VALUE1" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="NUM_VALUE2" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="DATE_VALUE1" sqlType="DATE" length="7" precision="0" nullable="true" jdbcType="93"/>
+      <column name="DATE_VALUE2" sqlType="DATE" length="7" precision="0" nullable="true" jdbcType="93"/>
+    </table>
+    <table name="MVIEW_FILTERINSTANCE" schema="SYSTEM" catalog="" type="VIEW">
+      <column name="RUNID" sqlType="NUMBER" length="0" precision="-127" nullable="false" jdbcType="3"/>
+      <column name="FILTERID" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="SUBFILTERNUM" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="SUBFILTERTYPE" sqlType="VARCHAR2" length="12" precision="0" nullable="true" jdbcType="12"/>
+      <column name="STR_VALUE" sqlType="VARCHAR2" length="1028" precision="0" nullable="true" jdbcType="12"/>
+      <column name="NUM_VALUE1" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="NUM_VALUE2" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="DATE_VALUE1" sqlType="DATE" length="7" precision="0" nullable="true" jdbcType="93"/>
+      <column name="DATE_VALUE2" sqlType="DATE" length="7" precision="0" nullable="true" jdbcType="93"/>
+    </table>
+    <table name="MVIEW_LOG" schema="SYSTEM" catalog="" type="VIEW">
+      <column name="ID" sqlType="NUMBER" length="0" precision="-127" nullable="false" jdbcType="3"/>
+      <column name="FILTERID" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="RUN_BEGIN" sqlType="DATE" length="7" precision="0" nullable="true" jdbcType="93"/>
+      <column name="RUN_END" sqlType="DATE" length="7" precision="0" nullable="true" jdbcType="93"/>
+      <column name="TYPE" sqlType="VARCHAR2" length="11" precision="0" nullable="true" jdbcType="12"/>
+      <column name="STATUS" sqlType="VARCHAR2" length="11" precision="0" nullable="true" jdbcType="12"/>
+      <column name="MESSAGE" sqlType="VARCHAR2" length="2000" precision="0" nullable="true" jdbcType="12"/>
+      <column name="COMPLETED" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="TOTAL" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="ERROR_CODE" sqlType="VARCHAR2" length="20" precision="0" nullable="true" jdbcType="12"/>
+    </table>
+    <table name="MVIEW_RECOMMENDATIONS" schema="SYSTEM" catalog="" type="VIEW">
+      <column name="RUNID" sqlType="NUMBER" length="0" precision="-127" nullable="false" jdbcType="3"/>
+      <column name="ALL_TABLES" sqlType="VARCHAR2" length="2000" precision="0" nullable="true" jdbcType="12"/>
+      <column name="FACT_TABLES" sqlType="VARCHAR2" length="1000" precision="0" nullable="true" jdbcType="12"/>
+      <column name="GROUPING_LEVELS" sqlType="VARCHAR2" length="2000" precision="0" nullable="true" jdbcType="12"/>
+      <column name="QUERY_TEXT" sqlType="LONG" length="0" precision="0" nullable="true" jdbcType="-1"/>
+      <column name="RECOMMENDATION_NUMBER" sqlType="NUMBER" length="0" precision="-127" nullable="false" jdbcType="3"/>
+      <column name="RECOMMENDED_ACTION" sqlType="VARCHAR2" length="6" precision="0" nullable="true" jdbcType="12"/>
+      <column name="MVIEW_OWNER" sqlType="VARCHAR2" length="30" precision="0" nullable="true" jdbcType="12"/>
+      <column name="MVIEW_NAME" sqlType="VARCHAR2" length="30" precision="0" nullable="true" jdbcType="12"/>
+      <column name="STORAGE_IN_BYTES" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="PCT_PERFORMANCE_GAIN" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="BENEFIT_TO_COST_RATIO" sqlType="NUMBER" length="0" precision="-127" nullable="false" jdbcType="3"/>
+    </table>
+    <table name="MVIEW_WORKLOAD" schema="SYSTEM" catalog="" type="VIEW">
+      <column name="WORKLOADID" sqlType="NUMBER" length="0" precision="-127" nullable="false" jdbcType="3"/>
+      <column name="IMPORT_TIME" sqlType="DATE" length="7" precision="0" nullable="false" jdbcType="93"/>
+      <column name="QUERYID" sqlType="NUMBER" length="0" precision="-127" nullable="false" jdbcType="3"/>
+      <column name="APPLICATION" sqlType="VARCHAR2" length="64" precision="0" nullable="true" jdbcType="12"/>
+      <column name="CARDINALITY" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="RESULTSIZE" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="LASTUSE" sqlType="DATE" length="7" precision="0" nullable="true" jdbcType="93"/>
+      <column name="FREQUENCY" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="OWNER" sqlType="VARCHAR2" length="30" precision="0" nullable="false" jdbcType="12"/>
+      <column name="PRIORITY" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+      <column name="QUERY" sqlType="LONG" length="0" precision="0" nullable="false" jdbcType="-1"/>
+      <column name="RESPONSETIME" sqlType="NUMBER" length="0" precision="-127" nullable="true" jdbcType="3"/>
+    </table>
+    <table name="ORDERS" schema="SYSTEM" catalog="" type="TABLE">
+      <column name="ORDER_ID" sqlType="NUMBER" length="10" precision="0" nullable="false" jdbcType="3"/>
+      <column name="USER_ID" sqlType="NUMBER" length="10" precision="0" nullable="false" jdbcType="3"/>
+      <column name="ORDER_DATE" sqlType="DATE" length="7" precision="0" nullable="false" jdbcType="93"/>
+      <column name="ORDER_PRICE" sqlType="NUMBER" length="10" precision="0" nullable="false" jdbcType="3"/>
+      <column name="ID_STATUS" sqlType="NUMBER" length="1" precision="0" nullable="false" jdbcType="3" def="MCA="/>
+      <primary-key name="SYS_C007077" columns="ORDER_ID"/>
+      <foreign-key name="SYS_C007079" columns="ID_STATUS" ref-table="STATUS_OF_ORDER" ref-schema="SYSTEM" ref-catalog="" ref-columns="ID_STATUS" update-rule="0" delete-rule="1" deferrability="2"/>
+      <foreign-key name="SYS_C007078" columns="USER_ID" ref-table="USERS" ref-schema="SYSTEM" ref-catalog="" ref-columns="USER_ID" update-rule="0" delete-rule="1" deferrability="2"/>
+      <exported-key name="SYS_C007085" table="CONTENT_OF_ORDER" schema="SYSTEM" catalog="" columns="ORDER_ID"/>
+    </table>
+    <table name="PRODUCT_PRIVS" schema="SYSTEM" catalog="" type="VIEW">
+      <column name="PRODUCT" sqlType="VARCHAR2" length="30" precision="0" nullable="false" jdbcType="12"/>
+      <column name="USERID" sqlType="VARCHAR2" length="30" precision="0" nullable="true" jdbcType="12"/>
+      <column name="ATTRIBUTE" sqlType="VARCHAR2" length="240" precision="0" nullable="true" jdbcType="12"/>
+      <column name="SCOPE" sqlType="VARCHAR2" length="240" precision="0" nullable="true" jdbcType="12"/>
+      <column name="NUMERIC_VALUE" sqlType="NUMBER" length="15" precision="2" nullable="true" jdbcType="3"/>
+      <column name="CHAR_VALUE" sqlType="VARCHAR2" length="240" precision="0" nullable="true" jdbcType="12"/>
+      <column name="DATE_VALUE" sqlType="DATE" length="7" precision="0" nullable="true" jdbcType="93"/>
+      <column name="LONG_VALUE" sqlType="LONG" length="0" precision="0" nullable="true" jdbcType="-1"/>
+    </table>
+    <table name="PRODUCT_USER_PROFILE" schema="SYSTEM" catalog="" type="SYNONYM"/>
+    <table name="PUBLICSYN" schema="SYSTEM" catalog="" type="SYNONYM"/>
+    <table name="PUBLISHER" schema="SYSTEM" catalog="" type="TABLE">
+      <column name="ID_PUBLISHER" sqlType="NUMBER" length="10" precision="0" nullable="false" jdbcType="3"/>
+      <column name="NAME_OF_PUBLISHER" sqlType="VARCHAR2" length="200" precision="0" nullable="true" jdbcType="12"/>
+      <primary-key name="SYS_C007060" columns="ID_PUBLISHER"/>
+      <exported-key name="SYS_C007071" table="BOOKS" schema="SYSTEM" catalog="" columns="ID_PUBLISHER"/>
+      <index name="SYS_C007061" unique="true" columns="NAME_OF_PUBLISHER"/>
+    </table>
+    <table name="SQLPLUS_PRODUCT_PROFILE" schema="SYSTEM" catalog="" type="TABLE">
+      <column name="PRODUCT" sqlType="VARCHAR2" length="30" precision="0" nullable="false" jdbcType="12"/>
+      <column name="USERID" sqlType="VARCHAR2" length="30" precision="0" nullable="true" jdbcType="12"/>
+      <column name="ATTRIBUTE" sqlType="VARCHAR2" length="240" precision="0" nullable="true" jdbcType="12"/>
+      <column name="SCOPE" sqlType="VARCHAR2" length="240" precision="0" nullable="true" jdbcType="12"/>
+      <column name="NUMERIC_VALUE" sqlType="NUMBER" length="15" precision="2" nullable="true" jdbcType="3"/>
+      <column name="CHAR_VALUE" sqlType="VARCHAR2" length="240" precision="0" nullable="true" jdbcType="12"/>
+      <column name="DATE_VALUE" sqlType="DATE" length="7" precision="0" nullable="true" jdbcType="93"/>
+      <column name="LONG_VALUE" sqlType="LONG" length="0" precision="0" nullable="true" jdbcType="-1"/>
+    </table>
+    <table name="STATUS_OF_ORDER" schema="SYSTEM" catalog="" type="TABLE">
+      <column name="ID_STATUS" sqlType="NUMBER" length="1" precision="0" nullable="false" jdbcType="3"/>
+      <column name="NAME_OF_STATUS" sqlType="VARCHAR2" length="50" precision="0" nullable="true" jdbcType="12"/>
+      <primary-key name="SYS_C007062" columns="ID_STATUS"/>
+      <exported-key name="SYS_C007079" table="ORDERS" schema="SYSTEM" catalog="" columns="ID_STATUS"/>
+      <index name="SYS_C007063" unique="true" columns="NAME_OF_STATUS"/>
+    </table>
+    <table name="SYSCATALOG" schema="SYSTEM" catalog="" type="SYNONYM"/>
+    <table name="SYSFILES" schema="SYSTEM" catalog="" type="SYNONYM"/>
+    <table name="TAB" schema="SYSTEM" catalog="" type="SYNONYM"/>
+    <table name="TABQUOTAS" schema="SYSTEM" catalog="" type="SYNONYM"/>
+    <table name="USERS" schema="SYSTEM" catalog="" type="TABLE">
+      <column name="USER_ID" sqlType="NUMBER" length="10" precision="0" nullable="false" jdbcType="3"/>
+      <column name="USER_FIO" sqlType="VARCHAR2" length="200" precision="0" nullable="false" jdbcType="12"/>
+      <column name="USER_ADRESS" sqlType="VARCHAR2" length="200" precision="0" nullable="false" jdbcType="12"/>
+      <column name="USER_PHONE" sqlType="NUMBER" length="10" precision="0" nullable="false" jdbcType="3" def="MCA="/>
+      <column name="USER_LOGIN" sqlType="VARCHAR2" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <column name="USER_PASSWORD" sqlType="VARCHAR2" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <column name="USER_MAIL" sqlType="VARCHAR2" length="100" precision="0" nullable="false" jdbcType="12"/>
+      <column name="USER_STATUS_ID" sqlType="NUMBER" length="1" precision="0" nullable="false" jdbcType="3"/>
+      <primary-key name="SYS_C007056" columns="USER_ID"/>
+      <foreign-key name="SYS_C007059" columns="USER_STATUS_ID" ref-table="USER_STATUSES" ref-schema="SYSTEM" ref-catalog="" ref-columns="USER_STATUS_ID" update-rule="0" delete-rule="1" deferrability="2"/>
+      <exported-key name="SYS_C007078" table="ORDERS" schema="SYSTEM" catalog="" columns="USER_ID"/>
+      <index name="SYS_C007057" unique="true" columns="USER_MAIL"/>
+      <index name="SYS_C007058" unique="true" columns="USER_FIO,USER_ADRESS"/>
+    </table>
+    <table name="USER_STATUSES" schema="SYSTEM" catalog="" type="TABLE">
+      <column name="USER_STATUS_ID" sqlType="NUMBER" length="1" precision="0" nullable="false" jdbcType="3"/>
+      <column name="NAME_OF_USER_STATUS" sqlType="VARCHAR2" length="50" precision="0" nullable="true" jdbcType="12"/>
+      <primary-key name="SYS_C007035" columns="USER_STATUS_ID"/>
+      <exported-key name="SYS_C007059" table="USERS" schema="SYSTEM" catalog="" columns="USER_STATUS_ID"/>
+      <index name="SYS_C007036" unique="true" columns="NAME_OF_USER_STATUS"/>
+    </table>
+    <procedure name="INTERNAL_SURROGATE_SYSTEM" schema="SYSTEM" catalog="" type="1" package="DBMS_REPCAT_AUTH" remarks="UGFja2FnZWQgcHJvY2VkdXJl">
+      <prototype>
+        <parameter name="GRANTS" sqlType="PL/SQL BOOLEAN" length="0" precision="0" nullable="true" jdbcType="1111" type="" index="0"/>
+        <parameter name="CANON_USER" sqlType="VARCHAR2" length="32767" precision="0" nullable="true" jdbcType="12" type="" index="1"/>
+      </prototype>
+    </procedure>
+  </data-source>
+</component>

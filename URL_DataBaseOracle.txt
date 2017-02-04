@@ -1,0 +1,6 @@
+jdbc:oracle:thin:@localhost:1521:XE
+или
+jdbc:oracle:thin:@127.0.0.1:1521:XE
+XE - это SID
+
+jdbc:oracle:thin:[system/3]@127.0.0.1:1521:XE     - тоже вроде правильно

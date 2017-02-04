@@ -1,0 +1,12 @@
+1) Main menu / Run / Edit Run Configurations. 
+Create one of Query Language Console type. 
+Provide necessary VM options ('-Duser.region=us -Duser.language=en').
+
+Run  - где в Idea зеленая стрелочка
+
+
+2)Data Sources tool window: open the data source properties dialog, 
+Console tab. Set your configuration in the Default Run Configuration field. 
+So, the console & connection will run with those options.
+
+Закладка в свойствах соединения с базой данных в плагине Database (панель справа).
