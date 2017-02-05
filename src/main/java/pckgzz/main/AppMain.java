@@ -21,7 +21,7 @@ public class AppMain {
 
 
            // publisherEntity.setIdPublisher(8);
-            publisherEntity.setNameOfPublisher("Vesna");
+            publisherEntity.setNameOfPublisher("Zima");
 
         session.save(publisherEntity);
         session.getTransaction().commit();
