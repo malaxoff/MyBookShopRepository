@@ -20,8 +20,8 @@ public class AppMain {
             PublisherEntity publisherEntity = new PublisherEntity();
 
 
-            publisherEntity.setIdPublisher(8);
-            publisherEntity.setNameOfPublisher("Luja");
+           // publisherEntity.setIdPublisher(8);
+            publisherEntity.setNameOfPublisher("Vesna");
 
         session.save(publisherEntity);
         session.getTransaction().commit();

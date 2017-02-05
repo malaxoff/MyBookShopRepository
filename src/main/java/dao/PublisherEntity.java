@@ -7,14 +7,12 @@ import javax.persistence.OneToMany;
 import java.util.Collection;
 import javax.persistence.GenerationType;  // для      @GeneratedValue(strategy = GenerationType.AUTO)
 import javax.persistence.GeneratedValue;  // для      @GeneratedValue(strategy = GenerationType.AUTO)
+import javax.persistence.SequenceGenerator;    // для      @SequenceGenerator(name="seq",sequenceName="seq_publ")
 
-/**
- * Created with IntelliJ IDEA.
- * User: user
- * Date: 02.02.17
- * Time: 17:47
- * To change this template use File | Settings | File Templates.
- */
+
+//      Издательсво
+
+
 @javax.persistence.Table(name = "PUBLISHER", schema = "SYSTEM", catalog = "")
 @Entity
 public class PublisherEntity {
@@ -22,7 +20,9 @@ public class PublisherEntity {
 
     @javax.persistence.Column(name = "ID_PUBLISHER", nullable = false, insertable = false, updatable = false, length = 10, precision = 0)
     @Id
-   // @GeneratedValue(strategy = GenerationType.AUTO)    // автоматическая генерация id
+    @SequenceGenerator(name="seq",sequenceName="seq_publ", allocationSize=1)   // автоматическая генерация id
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seq")    // автоматическая генерация id
+
     public int getIdPublisher() {
         return idPublisher;
     }
