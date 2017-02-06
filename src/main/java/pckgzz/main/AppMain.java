@@ -3,6 +3,7 @@ package pckgzz.main;
 import dao.PublisherEntity;
 import org.hibernate.Session;
 import pckgzz.utilz.HibernateSessionFactory;
+import pckgzz.logic.wellcome.WellCome;
 
 /**
  * Created by Nick on 05.09.2015.
@@ -10,21 +11,28 @@ import pckgzz.utilz.HibernateSessionFactory;
 public class AppMain {
 
     public static void main(String[] args) {
+
+
         try {
-        System.out.println("Hibernate tutorial");
+
+        WellCome.wellCome();
+
+
 
         Session session = HibernateSessionFactory.getSessionFactory().openSession();
-
         session.beginTransaction();
+
 
             PublisherEntity publisherEntity = new PublisherEntity();
 
 
            // publisherEntity.setIdPublisher(8);
-            publisherEntity.setNameOfPublisher("Zima");
+            publisherEntity.setNameOfPublisher("ZimaLetoOsen1");
 
         session.save(publisherEntity);
         session.getTransaction().commit();
+
+
 
         session.close();
         } catch (Exception e){System.out.println("Исключение   ");}
