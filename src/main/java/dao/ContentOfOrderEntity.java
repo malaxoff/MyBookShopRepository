@@ -1,11 +1,6 @@
 package dao;
 
-import javax.persistence.Basic;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.GenerationType;  // для      @GeneratedValue(strategy = GenerationType.AUTO)
-import javax.persistence.GeneratedValue;  // для      @GeneratedValue(strategy = GenerationType.AUTO)
+import javax.persistence.*;
 
 
 /**
@@ -22,7 +17,8 @@ public class ContentOfOrderEntity {
 
     @javax.persistence.Column(name = "ID", nullable = false, insertable = true, updatable = true, length = 20, precision = 0)
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)     // автоматическая генерация id
+    @SequenceGenerator(name="seq3",sequenceName="seq_cont", allocationSize=1)   // автоматическая генерация id
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seq3")    // автоматическая генерация id
     public int getId() {
         return id;
     }

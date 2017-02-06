@@ -1,12 +1,8 @@
 package pckgzz.logic.wellcome;
+import pckgzz.logic.autorisation.Autorisation;
+import pckgzz.logic.registration.Registration;
 
-/**
- * Created with IntelliJ IDEA.
- * User: user
- * Date: 06.02.17
- * Time: 17:26
- * To change this template use File | Settings | File Templates.
- */
+// меню выбора Авторизация , Регистрация, Выход из порграммы.
 public class WellCome {
 
     public static void wellCome() throws java.io.IOException{
@@ -25,18 +21,22 @@ public class WellCome {
 
             choice = (char) System.in.read();
 
-            do {
+            do {                                                  // исключаем служебн символы
                 ignore = (char) System.in.read();
             } while(ignore != '\n');
 
         } while (choice < '1' || choice > '3') ;
 
+
+
         switch (choice){
             case '1':
                 System.out.println("Вы выбрали авторизацию");
+                Autorisation.autorisation();
                 break;
             case '2':
                 System.out.println("Вы выбрали регистрацию нового пользователя");
+                Registration.registration();
                 break;
             case '3':
                 System.exit(0);

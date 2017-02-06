@@ -18,7 +18,8 @@ public class UsersEntity {
 
     @javax.persistence.Column(name = "USER_ID", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)    // автоматическая генерация id
+    @SequenceGenerator(name="seq6",sequenceName="seq_user", allocationSize=1)   // автоматическая генерация id
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seq6")    // автоматическая генерация id
     public int getUserId() {
         return userId;
     }

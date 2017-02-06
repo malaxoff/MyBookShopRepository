@@ -19,7 +19,8 @@ public class OrdersEntity {
 
     @javax.persistence.Column(name = "ORDER_ID", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)     // автоматическая генерация id
+    @SequenceGenerator(name="seq4",sequenceName="seq_ord", allocationSize=1)   // автоматическая генерация id
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seq4")    // автоматическая генерация id
     public int getOrderId() {
         return orderId;
     }

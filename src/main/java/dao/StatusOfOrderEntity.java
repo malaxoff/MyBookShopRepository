@@ -1,13 +1,8 @@
 package dao;
 
-import javax.persistence.Basic;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.math.BigInteger;
 import java.util.Collection;
-import javax.persistence.GenerationType;  // для      @GeneratedValue(strategy = GenerationType.AUTO)
-import javax.persistence.GeneratedValue;  // для      @GeneratedValue(strategy = GenerationType.AUTO)
 
 /**
  * Created with IntelliJ IDEA.
@@ -23,7 +18,6 @@ public class StatusOfOrderEntity {
 
     @javax.persistence.Column(name = "ID_STATUS", nullable = false, insertable = true, updatable = true, length = 1, precision = 0)
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)    // автоматическая генерация id
     public BigInteger getIdStatus() {
         return idStatus;
     }
