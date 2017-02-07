@@ -5,6 +5,8 @@ import org.hibernate.Session;
 import pckgzz.utilz.HibernateSessionFactory;
 import pckgzz.logic.wellcome.WellCome;
 
+import java.util.Scanner;
+
 /**
  * Created by Nick on 05.09.2015.
  */
@@ -12,11 +14,15 @@ public class AppMain {
 
     public static void main(String[] args) {
 
+        try {
+            WellCome.wellCome();
+        } catch (Exception e){System.out.println("Исключение по регистрации  ");}
+
+
+
+
 
         try {
-
-        WellCome.wellCome();
-
 
 
         Session session = HibernateSessionFactory.getSessionFactory().openSession();
@@ -26,8 +32,8 @@ public class AppMain {
             PublisherEntity publisherEntity = new PublisherEntity();
 
 
-           // publisherEntity.setIdPublisher(8);
-            publisherEntity.setNameOfPublisher("ZimaLetoOsen1");
+           // publisherEntity.setIdPublisher(8);    не используется, а id генериться автоматом.
+            publisherEntity.setNameOfPublisher("222333444");
 
         session.save(publisherEntity);
         session.getTransaction().commit();
@@ -35,7 +41,7 @@ public class AppMain {
 
 
         session.close();
-        } catch (Exception e){System.out.println("Исключение   ");}
+        } catch (Exception e){System.out.println("Исключение по publisher   ");}
 
 
     }

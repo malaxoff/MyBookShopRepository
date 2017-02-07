@@ -9,13 +9,8 @@ import java.util.Collection;
 import javax.persistence.GenerationType;  // для      @GeneratedValue(strategy = GenerationType.AUTO)
 import javax.persistence.GeneratedValue;  // для      @GeneratedValue(strategy = GenerationType.AUTO)
 
-/**
- * Created with IntelliJ IDEA.
- * User: user
- * Date: 02.02.17
- * Time: 17:47
- * To change this template use File | Settings | File Templates.
- */
+//Стату пользователя
+
 @javax.persistence.Table(name = "USER_STATUSES", schema = "SYSTEM", catalog = "")
 @Entity
 public class UserStatusesEntity {

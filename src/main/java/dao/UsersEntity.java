@@ -4,13 +4,8 @@ import javax.persistence.*;
 import java.math.BigInteger;
 import java.util.Collection;
 
-/**
- * Created with IntelliJ IDEA.
- * User: user
- * Date: 02.02.17
- * Time: 17:47
- * To change this template use File | Settings | File Templates.
- */
+// Карточка пользователя
+
 @javax.persistence.Table(name = "USERS", schema = "SYSTEM", catalog = "")
 @Entity
 public class UsersEntity {

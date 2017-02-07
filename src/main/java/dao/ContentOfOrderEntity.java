@@ -2,14 +2,8 @@ package dao;
 
 import javax.persistence.*;
 
+// Состав заказа
 
-/**
- * Created with IntelliJ IDEA.
- * User: user
- * Date: 02.02.17
- * Time: 17:47
- * To change this template use File | Settings | File Templates.
- */
 @javax.persistence.Table(name = "CONTENT_OF_ORDER", schema = "SYSTEM", catalog = "")
 @Entity
 public class ContentOfOrderEntity {
