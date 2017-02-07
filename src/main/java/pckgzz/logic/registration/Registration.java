@@ -1,9 +1,11 @@
 package pckgzz.logic.registration;
 
+import dao.UserStatusesEntity;
 import dao.UsersEntity;
 import org.hibernate.Session;
 import pckgzz.utilz.HibernateSessionFactory;
 
+//import java.math.BigInteger;
 import java.math.BigInteger;
 import java.util.Scanner;
 
@@ -13,24 +15,21 @@ import java.util.Scanner;
 public class Registration {
     public static void registration(){
 
-        Session session = HibernateSessionFactory.getSessionFactory().openSession();
-        session.beginTransaction();
 
+    //    UsersEntity newUser = new  UsersEntity();
         Scanner scan = new Scanner(System.in);
 
-        UsersEntity newUser = new  UsersEntity();     //создаем нового пользователя
+     //сбор данных о пользователе
 
         // id генериться автоматически  благодаря seq_user
 
         //ФИО
         System.out.println("Введите Фамилию Имя Отчество :");
         String fio = scan.nextLine();
-        newUser.setUserFio(fio);
 
         //адрес
         System.out.println("Введите почтовый адрес :");
         String adress = scan.nextLine();
-        newUser.setUserAdress(adress);
 
         //phone      для упрощения пока без реакции на неправильный формат номера
         System.out.println("Введите номер телефона :");
@@ -43,45 +42,65 @@ public class Registration {
 
                          System.out.println("Неверный формат номера телефона!  ");
                    }
-        newUser.setUserPhone(phone);
-
 
 
          // login    пока без проверки на уникальность
         System.out.println("Введите login :");
         String login = scan.next();
-        newUser.setUserLogin(login);
 
         //password
         System.out.println("Введите password :");
         String password = scan.next();
-        newUser.setUserPassword(password);
 
         //электронка
         System.out.println("Введите адрес электронной почты :");
         String email = scan.next();
-        newUser.setUserMail(email);
 
         // статус покупателя по умолчанию 0 - ноль, 1 - продавец, 2 - админ. Продавцов и админов добавляет админ.
-       // final BigInteger user_status = 0;
-        newUser.setUserStatusId(0);
+
+        final Integer user_status = 1;
+
+         /*
+
+        // вывод на экран дял проверки
+        System.out.println("Фамилия Имя Отчество :" + fio);
+        System.out.println("Почтовый адрес :" + adress);
+        System.out.println("Номер телефона :" + phone);
+        System.out.println("login :" + login);
+        System.out.println("password :" + password);
+        System.out.println("адрес электронной почты :" + email);
+        System.out.println("user_status :" + user_status);
+
+          */
+
+         // работа с базой данных
 
 
+        Session session = HibernateSessionFactory.getSessionFactory().openSession();
+        session.beginTransaction();
 
 
+        UsersEntity newUser = new  UsersEntity();           // создаем объект пользователя
+
+        newUser.setUserFio(fio);
+        newUser.setUserAdress(adress);
+        newUser.setUserPhone(phone);
+        newUser.setUserLogin(login);
+        newUser.setUserPassword(password);
+        newUser.setUserMail(email);
+        newUser.setUserStatusId( user_status );
+     //   newUser.setUserStatusesByUserStatusId(new UserStatusesEntity());
 
 
-
-
-
-
-
-
-
-
-        session.save(newUser);
+        System.out.println("После set-ров ");
+        session.persist(newUser);
+        System.out.println("После persist ");
+        session.saveOrUpdate(newUser);
+        System.out.println("После  save ");
         session.getTransaction().commit();
+        System.out.println("После  commit ");
         session.close();
+        System.out.println("После  close ");
 
 
 

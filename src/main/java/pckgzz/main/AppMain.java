@@ -13,13 +13,16 @@ import java.util.Scanner;
 public class AppMain {
 
     public static void main(String[] args) {
-
+                /*
         try {
             WellCome.wellCome();
-        } catch (Exception e){System.out.println("Исключение по регистрации  ");}
+        } catch (Exception e){
+            System.out.println("Исключение при регистрации  ");
+            e.printStackTrace();
+        }
 
 
-
+                          */
 
 
         try {
@@ -32,8 +35,8 @@ public class AppMain {
             PublisherEntity publisherEntity = new PublisherEntity();
 
 
-           // publisherEntity.setIdPublisher(8);    не используется, а id генериться автоматом.
-            publisherEntity.setNameOfPublisher("222333444");
+           //  id генериться автоматом.
+            publisherEntity.setNameOfPublisher("1111");
 
         session.save(publisherEntity);
         session.getTransaction().commit();
@@ -41,7 +44,10 @@ public class AppMain {
 
 
         session.close();
-        } catch (Exception e){System.out.println("Исключение по publisher   ");}
+        } catch (Exception e){
+            System.out.println("Исключение по publisher   ");
+            e.printStackTrace();
+        }
 
 
     }

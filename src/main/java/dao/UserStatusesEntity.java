@@ -14,16 +14,16 @@ import javax.persistence.GeneratedValue;  // для      @GeneratedValue(strateg
 @javax.persistence.Table(name = "USER_STATUSES", schema = "SYSTEM", catalog = "")
 @Entity
 public class UserStatusesEntity {
-    private BigInteger userStatusId;
+    private Integer userStatusId;
 
     @javax.persistence.Column(name = "USER_STATUS_ID", nullable = false, insertable = false, updatable = false, length = 1, precision = 0)
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO) // автоматическая генерация id
-    public BigInteger getUserStatusId() {
+    public Integer getUserStatusId() {
         return userStatusId;
     }
 
-    public void setUserStatusId(BigInteger userStatusId) {
+    public void setUserStatusId(Integer userStatusId) {
         this.userStatusId = userStatusId;
     }
 

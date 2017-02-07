@@ -95,15 +95,15 @@ public class UsersEntity {
         this.userMail = userMail;
     }
 
-    private BigInteger userStatusId;
+    private Integer userStatusId;
 
     @javax.persistence.Column(name = "USER_STATUS_ID", nullable = false, insertable = false, updatable = false, length = 1, precision = 0)
     @Basic
-    public BigInteger getUserStatusId() {
+    public Integer getUserStatusId() {
         return userStatusId;
     }
 
-    public void setUserStatusId(BigInteger userStatusId) {
+    public void setUserStatusId(Integer userStatusId) {
         this.userStatusId = userStatusId;
     }
 
