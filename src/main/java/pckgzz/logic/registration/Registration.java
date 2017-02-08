@@ -3,14 +3,12 @@ package pckgzz.logic.registration;
 import dao.UserStatusesEntity;
 import dao.UsersEntity;
 import org.hibernate.Session;
+import pckgzz.logic.pokupatel.UserMenu;
 import pckgzz.utilz.HibernateSessionFactory;
-
-//import java.math.BigInteger;
-import java.math.BigInteger;
 import java.util.Scanner;
 
 
-// процедура регистрации
+// процедура регистрации. по факту регистрации передаем созданного пользователя в меню пользователя.
 
 public class Registration {
     public static void registration(){
@@ -41,11 +39,12 @@ public class Registration {
                    }catch (NumberFormatException e) {
 
                          System.out.println("Неверный формат номера телефона!  ");
+                         e.printStackTrace();
                    }
 
 
          // login    пока без проверки на уникальность
-        System.out.println("Введите login :");
+        System.out.println("Введите login :");    // здесь нужно проверить логин на уникальность чтобы не было откза Oracle
         String login = scan.next();
 
         //password
@@ -57,8 +56,7 @@ public class Registration {
         String email = scan.next();
 
         // статус покупателя по умолчанию 0 - ноль, 1 - продавец, 2 - админ. Продавцов и админов добавляет админ.
-
-        final Integer user_status = 1;
+        final Integer user_status = 0;
 
 
 
@@ -68,7 +66,7 @@ public class Registration {
         Session session = HibernateSessionFactory.getSessionFactory().openSession();
         session.beginTransaction();
 
-        //создаем объект статуса пользователя
+        //Загружаем объект статуса пользователя из базы со статусом 0 - покупатель
         UserStatusesEntity userStatusesEntity = session.load(UserStatusesEntity.class, user_status);
 
 
@@ -91,7 +89,10 @@ public class Registration {
         session.close();
 
 
-        System.out.println("Регистрация прошла успешно ");
+        System.out.println("Регистрация прошла успешно. ");
+
+        UserMenu.userMenu(newUser);
+
 
 
 

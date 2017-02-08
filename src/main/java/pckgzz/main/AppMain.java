@@ -15,9 +15,13 @@ public class AppMain {
     public static void main(String[] args) {
 
         try {
-            WellCome.wellCome();
+
+            WellCome.wellCome();  // при запуске программы вываливаемся в меню где предложено авторизоваться или зарегистрироваться
+
         } catch (Exception e){
+
             System.out.println("Исключение при регистрации  ");
+
             e.printStackTrace();
         }
 

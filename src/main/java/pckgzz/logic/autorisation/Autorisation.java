@@ -4,21 +4,23 @@ import dao.UsersEntity;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
+import pckgzz.logic.admin.AdminMenu;
+import pckgzz.logic.pokupatel.UserMenu;
+import pckgzz.logic.prodavec.SellerMenu;
 import pckgzz.utilz.HibernateSessionFactory;
 
 import java.util.Scanner;
 
-/**
- * Created with IntelliJ IDEA.
- * User: user
- * Date: 06.02.17
- * Time: 19:29
- * To change this template use File | Settings | File Templates.
- */
+// меню авторизации пользователя
+
 public class Autorisation {
     public static void autorisation(){
 
+        int userstatus = 4;    // статус пользователя выдернутый из базы после авторизации.  По умолчанию не существующий, что бы поймать ошибку
+
         Scanner scan = new Scanner(System.in);
+
+        UsersEntity newUser = new UsersEntity();
 
 
         System.out.print("Введите свой login    :" + "\n");
@@ -48,12 +50,13 @@ public class Autorisation {
 
         else     // в противном случае проверяем пароль на соответствие
           {
-              UsersEntity newUser = (UsersEntity) userCriteria.uniqueResult();
 
+              newUser = (UsersEntity) userCriteria.uniqueResult();
 
               if (    password.equals(newUser.getUserPassword())   )     {
 
                        System.out.println("Авторизация прошла успешно ");
+                       userstatus = newUser.getUserStatusId();      // не плохо бы здесь проверять статус пользователя на адекватность
 
               }
 
@@ -64,7 +67,16 @@ public class Autorisation {
 
           }
 
-        session.close();
+
+        session.close();     // закрытие сессии, база нам больше не нужна
+
+        // проверим статус пользователя и в зависимости от него передадим объект пользователя соответствующему методу
+        // так же можно передать в в метод id пользователя
+
+        if (userstatus == 0)    {  UserMenu.userMenu(newUser); }
+        if (userstatus == 1)    {  SellerMenu.sellerMenu(newUser); }
+        if (userstatus == 2)    {  AdminMenu.adminMenu(newUser); }
+        if (userstatus != 0 || userstatus != 1 || userstatus != 2)    {  System.out.println("Что то пошло не так со статусом пользователя.  "); }
 
 
 

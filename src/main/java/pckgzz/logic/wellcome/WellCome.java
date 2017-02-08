@@ -39,10 +39,11 @@ public class WellCome {
                 Registration.registration();
                 break;
             case '3':
+                System.out.println("Вы выбрали выход");
                 System.exit(0);
                 break;
             default:
-                System.out.print("Что то пошло не так ...");
+                System.out.print("Что то пошло не так в меню WellCome ...");
         }
 
 
