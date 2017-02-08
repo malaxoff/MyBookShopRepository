@@ -12,6 +12,7 @@ import pckgzz.utilz.HibernateSessionFactory;
 import java.util.Scanner;
 
 // меню авторизации пользователя
+// маловат тип для номера телефона нужно исправить, поэтому вываливает исключение при выдергивании пользователя из базы с номером больше чем int
 
 public class Autorisation {
     public static void autorisation(){
@@ -23,11 +24,11 @@ public class Autorisation {
         UsersEntity newUser = new UsersEntity();
 
 
-        System.out.print("Введите свой login    :" + "\n");
+        System.out.print("Введите свой login       :   ");
         String login = scan.next();
 
 
-        System.out.print("Введите свой password    :" + "\n");
+        System.out.print("Введите свой password    :   ");
         String password = scan.next();
 
 
@@ -46,7 +47,11 @@ public class Autorisation {
 
             // если такого пользователя нет то пишем : Нет аткого пользователя
         if ( userCriteria.uniqueResult()== null)
-               {System.out.println("Нет такого пользователя. Попробуйте еще раз. ");}    // Доработать. Отправить на повторную попытку
+               {
+                   System.out.println("Нет такого пользователя. Попробуйте еще раз. ");
+                   System.exit(0);
+
+               }    // Доработать. Отправить на повторную попытку
 
         else     // в противном случае проверяем пароль на соответствие
           {
@@ -61,7 +66,8 @@ public class Autorisation {
               }
 
               else    {
-                  System.out.println("Пароль не верный. Попробуйте еще раз.  ");  // Доработать. Отправить на повторную попытку
+                  System.out.println("Пароль не верный. Попробуйте еще раз.  ");       // Доработать. Отправить на повторную попытку
+                  System.exit(0);
               }
 
 
@@ -76,7 +82,7 @@ public class Autorisation {
         if (userstatus == 0)    {  UserMenu.userMenu(newUser); }
         if (userstatus == 1)    {  SellerMenu.sellerMenu(newUser); }
         if (userstatus == 2)    {  AdminMenu.adminMenu(newUser); }
-        if (userstatus != 0 || userstatus != 1 || userstatus != 2)    {  System.out.println("Что то пошло не так со статусом пользователя.  "); }
+      //  if (userstatus != 0 || userstatus != 1 || userstatus != 2)    {  System.out.println("Что то пошло не так со статусом пользователя.  "); }
 
 
 

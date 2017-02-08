@@ -2,13 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b7d7705-b9e1-4ff2-9ba6-412d4824ca51" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/pckgzz/logic/admin/AdminMenu.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/pckgzz/logic/prodavec/SellerMenu.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/pckgzz/logic/pokupatel/UserMenu.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pckgzz/main/AppMain.java" afterPath="$PROJECT_DIR$/src/main/java/pckgzz/main/AppMain.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/schema_Oracle_BookShop.docx" afterPath="$PROJECT_DIR$/schema_Oracle_BookShop.docx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pckgzz/logic/admin/AdminMenu.java" afterPath="$PROJECT_DIR$/src/main/java/pckgzz/logic/admin/AdminMenu.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pckgzz/logic/autorisation/Autorisation.java" afterPath="$PROJECT_DIR$/src/main/java/pckgzz/logic/autorisation/Autorisation.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pckgzz/logic/registration/Registration.java" afterPath="$PROJECT_DIR$/src/main/java/pckgzz/logic/registration/Registration.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pckgzz/logic/wellcome/WellCome.java" afterPath="$PROJECT_DIR$/src/main/java/pckgzz/logic/wellcome/WellCome.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pckgzz/logic/pokupatel/UserMenu.java" afterPath="$PROJECT_DIR$/src/main/java/pckgzz/logic/pokupatel/UserMenu.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/dao/UsersEntity.java" afterPath="$PROJECT_DIR$/src/main/java/dao/UsersEntity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="MyBookShop.iws" />
@@ -19,16 +18,16 @@
     <file path="/UserStatusesEntity.java" changelist="0b7d7705-b9e1-4ff2-9ba6-412d4824ca51" time="1486531863969" ignored="false" />
     <file path="/ContentOfOrderEntity.java" changelist="0b7d7705-b9e1-4ff2-9ba6-412d4824ca51" time="1486456546601" ignored="false" />
     <file path="/OrdersEntity.java" changelist="0b7d7705-b9e1-4ff2-9ba6-412d4824ca51" time="1486456559879" ignored="false" />
-    <file path="/Dummy.txt" changelist="0b7d7705-b9e1-4ff2-9ba6-412d4824ca51" time="1486561613889" ignored="false" />
+    <file path="/Dummy.txt" changelist="0b7d7705-b9e1-4ff2-9ba6-412d4824ca51" time="1486572568930" ignored="false" />
     <file path="/PublisherEntity.java" changelist="0b7d7705-b9e1-4ff2-9ba6-412d4824ca51" time="1486285186614" ignored="false" />
     <file path="/autorisation.java" changelist="0b7d7705-b9e1-4ff2-9ba6-412d4824ca51" time="1486387405125" ignored="false" />
     <file path="/WellCome.java" changelist="0b7d7705-b9e1-4ff2-9ba6-412d4824ca51" time="1486395959158" ignored="false" />
     <file path="$PROJECT_DIR$/../../return_main/src/com/company/Main.java" changelist="0b7d7705-b9e1-4ff2-9ba6-412d4824ca51" time="1486389580703" ignored="false" />
-    <file path="/Autorisation.java" changelist="0b7d7705-b9e1-4ff2-9ba6-412d4824ca51" time="1486568266291" ignored="false" />
-    <file path="/Registration.java" changelist="0b7d7705-b9e1-4ff2-9ba6-412d4824ca51" time="1486563607722" ignored="false" />
+    <file path="/Autorisation.java" changelist="0b7d7705-b9e1-4ff2-9ba6-412d4824ca51" time="1486573279538" ignored="false" />
+    <file path="/Registration.java" changelist="0b7d7705-b9e1-4ff2-9ba6-412d4824ca51" time="1486573835301" ignored="false" />
     <file path="/BooksEntity.java" changelist="0b7d7705-b9e1-4ff2-9ba6-412d4824ca51" time="1486456533132" ignored="false" />
     <file path="/StatusOfOrderEntity.java" changelist="0b7d7705-b9e1-4ff2-9ba6-412d4824ca51" time="1486456596070" ignored="false" />
-    <file path="/UsersEntity.java" changelist="0b7d7705-b9e1-4ff2-9ba6-412d4824ca51" time="1486531926494" ignored="false" />
+    <file path="/UsersEntity.java" changelist="0b7d7705-b9e1-4ff2-9ba6-412d4824ca51" time="1486573239384" ignored="false" />
     <file path="/UserMenu.java" changelist="0b7d7705-b9e1-4ff2-9ba6-412d4824ca51" time="1486567984440" ignored="false" />
     <file path="/SellerMenu.java" changelist="0b7d7705-b9e1-4ff2-9ba6-412d4824ca51" time="1486566292986" ignored="false" />
     <file path="/AdminMenu.java" changelist="0b7d7705-b9e1-4ff2-9ba6-412d4824ca51" time="1486568354488" ignored="false" />
@@ -109,7 +108,7 @@
       <file leaf-file-name="UsersEntity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/dao/UsersEntity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="101" column="19" selection-start="2977" selection-end="2992" vertical-scroll-proportion="0.0">
+            <state line="55" column="56" selection-start="1711" selection-end="1711" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -127,10 +126,8 @@
       <file leaf-file-name="Registration.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/pckgzz/logic/registration/Registration.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="24" selection-start="1227" selection-end="1227" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state line="54" column="92" selection-start="2067" selection-end="2067" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -138,10 +135,8 @@
       <file leaf-file-name="UserMenu.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/pckgzz/logic/pokupatel/UserMenu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="0" selection-start="663" selection-end="706" vertical-scroll-proportion="0.27938342">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state line="43" column="74" selection-start="1209" selection-end="1209" vertical-scroll-proportion="0.15799615">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -150,9 +145,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/pckgzz/logic/prodavec/SellerMenu.java">
           <provider selected="true" editor-type-id="text-editor">
             <state line="66" column="44" selection-start="2196" selection-end="2196" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -160,10 +153,8 @@
       <file leaf-file-name="WellCome.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/pckgzz/logic/wellcome/WellCome.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="68" selection-start="1310" selection-end="1310" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state line="42" column="16" selection-start="1295" selection-end="1310" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -171,10 +162,8 @@
       <file leaf-file-name="Autorisation.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/pckgzz/logic/autorisation/Autorisation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="52" column="0" selection-start="1654" selection-end="1654" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state line="69" column="33" selection-start="2428" selection-end="2428" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -182,7 +171,7 @@
       <file leaf-file-name="AdminMenu.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/pckgzz/logic/admin/AdminMenu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="14" selection-start="68" selection-end="68" vertical-scroll-proportion="0.0">
+            <state line="9" column="23" selection-start="219" selection-end="219" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -214,15 +203,15 @@
         <option value="$PROJECT_DIR$/src/main/java/dao/ContentOfOrderEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/OrdersEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/StatusOfOrderEntity.java" />
-        <option value="$PROJECT_DIR$/src/main/java/dao/UsersEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/dao/UserStatusesEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/pckgzz/logic/wellcome/WellCome.java" />
         <option value="$PROJECT_DIR$/src/main/java/pckgzz/main/AppMain.java" />
-        <option value="$PROJECT_DIR$/src/main/java/pckgzz/logic/registration/Registration.java" />
         <option value="$PROJECT_DIR$/src/main/java/pckgzz/logic/prodavec/SellerMenu.java" />
-        <option value="$PROJECT_DIR$/src/main/java/pckgzz/logic/pokupatel/UserMenu.java" />
+        <option value="$PROJECT_DIR$/src/main/java/dao/UsersEntity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pckgzz/logic/registration/Registration.java" />
         <option value="$PROJECT_DIR$/src/main/java/pckgzz/logic/admin/AdminMenu.java" />
         <option value="$PROJECT_DIR$/src/main/java/pckgzz/logic/autorisation/Autorisation.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pckgzz/logic/pokupatel/UserMenu.java" />
       </list>
     </option>
   </component>
@@ -259,6 +248,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -462,44 +453,6 @@
               <option name="myItemId" value="logic" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="prodavec" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MyBookShop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="MyBookShop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pckgzz" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="logic" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="pokupatel" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -597,8 +550,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -615,12 +566,12 @@
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="restartRequiresConfirmation" value="true" />
-    <property name="MemberChooser.showClasses" value="true" />
     <property name="FullScreen" value="false" />
+    <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="dynamic.classpath" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="dynamic.classpath" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="ImportMappingsDialog.RecentPackages">
@@ -665,6 +616,19 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -691,19 +655,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -806,7 +757,7 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32858837" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24959481" sideWeight="0.5005931" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3289941" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -947,6 +898,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pckgzz/logic/prodavec/SellerMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="66" column="44" selection-start="2196" selection-end="2196" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pckgzz/main/AppMain.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="27" column="45" selection-start="593" selection-end="593" vertical-scroll-proportion="0.0">
@@ -954,62 +912,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pckgzz/logic/prodavec/SellerMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="44" selection-start="2196" selection-end="2196" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/dao/UsersEntity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="101" column="19" selection-start="2977" selection-end="2992" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pckgzz/logic/wellcome/WellCome.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="68" selection-start="1310" selection-end="1310" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pckgzz/logic/admin/AdminMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="14" selection-start="68" selection-end="68" vertical-scroll-proportion="0.0">
+        <state line="55" column="56" selection-start="1711" selection-end="1711" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pckgzz/logic/registration/Registration.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="24" selection-start="1227" selection-end="1227" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="54" column="92" selection-start="2067" selection-end="2067" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pckgzz/logic/wellcome/WellCome.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="16" selection-start="1295" selection-end="1310" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pckgzz/logic/admin/AdminMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="23" selection-start="219" selection-end="219" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pckgzz/logic/autorisation/Autorisation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="0" selection-start="1654" selection-end="1654" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="69" column="33" selection-start="2428" selection-end="2428" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pckgzz/logic/pokupatel/UserMenu.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="0" selection-start="663" selection-end="706" vertical-scroll-proportion="0.27938342">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="43" column="74" selection-start="1209" selection-end="1209" vertical-scroll-proportion="0.15799615">
+          <folding />
         </state>
       </provider>
     </entry>

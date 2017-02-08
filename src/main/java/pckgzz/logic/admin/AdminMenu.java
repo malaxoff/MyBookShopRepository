@@ -7,6 +7,7 @@ public class AdminMenu {
     public static void adminMenu (UsersEntity u){
 
         System.out.println("Вы - админ. Круто !");
+        System.exit(0);
     }
 
 }

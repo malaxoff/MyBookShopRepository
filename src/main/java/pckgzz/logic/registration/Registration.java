@@ -22,17 +22,17 @@ public class Registration {
         // id генериться автоматически  благодаря seq_user
 
         //ФИО
-        System.out.println("Введите Фамилию Имя Отчество :");
+        System.out.print("Введите Фамилию Имя Отчество   ( пока на Английском :-) )      :  ");
         String fio = scan.nextLine();
 
         //адрес
-        System.out.println("Введите почтовый адрес :");
+        System.out.print("Введите почтовый адрес         ( пока на Английском :-) )      :  ");
         String adress = scan.nextLine();
 
         //phone      для упрощения пока без реакции на неправильный формат номера
-        System.out.println("Введите номер телефона :");
+        System.out.print("Введите номер телефона    ( пока пеньше 10 символов :-) )      :  ");
         String phoneStr = scan.next();
-        int phone=0;
+        int phone=0;    // маловат тип для номера телефона нужно исправить, поэтому вываливает исключение при выдергивании пользователя из базы с номером больше чем int
                    try {
                             phone = Integer.valueOf(phoneStr);
 
@@ -44,15 +44,15 @@ public class Registration {
 
 
          // login    пока без проверки на уникальность
-        System.out.println("Введите login :");    // здесь нужно проверить логин на уникальность чтобы не было откза Oracle
+        System.out.print("Введите login                  ( пока на Английском :-) )      :  ");    // здесь нужно проверить логин на уникальность чтобы не было откза Oracle
         String login = scan.next();
 
         //password
-        System.out.println("Введите password :");
+        System.out.print("Введите password               ( пока на Английском :-) )      :  ");
         String password = scan.next();
 
         //электронка
-        System.out.println("Введите адрес электронной почты :");
+        System.out.print("Введите адрес электронной почты                                :  ");
         String email = scan.next();
 
         // статус покупателя по умолчанию 0 - ноль, 1 - продавец, 2 - админ. Продавцов и админов добавляет админ.
@@ -77,7 +77,7 @@ public class Registration {
         // заполняем поля пользователя
         newUser.setUserFio(fio);
         newUser.setUserAdress(adress);
-        newUser.setUserPhone(phone);
+        newUser.setUserPhone(phone);     // маловат тип для номера телефона нужно исправить, поэтому вываливает исключение при выдергивании пользователя из базы с номером больше чем int
         newUser.setUserLogin(login);
         newUser.setUserPassword(password);
         newUser.setUserMail(email);

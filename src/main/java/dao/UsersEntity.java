@@ -47,7 +47,7 @@ public class UsersEntity {
         this.userAdress = userAdress;
     }
 
-    private int userPhone;
+    private int userPhone;      // маловат тип для номера телефона нужно исправить
 
     @javax.persistence.Column(name = "USER_PHONE", nullable = false, insertable = true, updatable = true, length = 10, precision = 0)
     @Basic
