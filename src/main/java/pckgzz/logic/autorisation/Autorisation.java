@@ -44,7 +44,8 @@ public class Autorisation {
 
             // если такого пользователя нет то пишем : Нет аткого пользователя
         if ( userCriteria.uniqueResult()== null)
-                                    {System.out.println("Нет такого пользователя ");}
+               {System.out.println("Нет такого пользователя. Попробуйте еще раз. ");}    // Доработать. Отправить на повторную попытку
+
         else     // в противном случае проверяем пароль на соответствие
           {
               UsersEntity newUser = (UsersEntity) userCriteria.uniqueResult();
@@ -57,14 +58,16 @@ public class Autorisation {
               }
 
               else    {
-                  System.out.println("Пароль не верный ");
+                  System.out.println("Пароль не верный. Попробуйте еще раз.  ");  // Доработать. Отправить на повторную попытку
               }
 
 
           }
 
-
         session.close();
+
+
+
 
 
 
