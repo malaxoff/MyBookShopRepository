@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0b7d7705-b9e1-4ff2-9ba6-412d4824ca51" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/pckgzz/logic/autorisation/Autorisation.java" afterPath="$PROJECT_DIR$/src/main/java/pckgzz/logic/autorisation/Autorisation.java" />
-    </list>
+    <list default="true" id="0b7d7705-b9e1-4ff2-9ba6-412d4824ca51" name="Default" comment="" />
     <ignored path="MyBookShop.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/pom.xml" changelist="0b7d7705-b9e1-4ff2-9ba6-412d4824ca51" time="1486042143533" ignored="false" />
