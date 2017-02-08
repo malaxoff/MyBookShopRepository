@@ -60,7 +60,7 @@ public class UserStatusesEntity {
 
     private Collection<UsersEntity> usersesByUserStatusId;
 
-    @OneToMany(mappedBy = "userStatusesByUserStatusId", cascade = CascadeType.ALL)                              // добавил cascade = CascadeType.ALL
+    @OneToMany(mappedBy = "userStatusesByUserStatusId"/*, cascade = CascadeType.ALL*/)                              // добавил cascade = CascadeType.ALL
     public Collection<UsersEntity> getUsersesByUserStatusId() {
         return usersesByUserStatusId;
     }

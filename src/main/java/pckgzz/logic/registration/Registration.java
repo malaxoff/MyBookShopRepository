@@ -86,19 +86,12 @@ public class Registration {
         newUser.setUserStatusesByUserStatusId( userStatusesEntity );     // важно что добавляем status пользователя по выдернутому из главной таблицы объекту
 
 
-
-
-          System.out.println("После set-ров ");
-
-
-
-
         session.save(newUser);
-        System.out.println("После  save ");
         session.getTransaction().commit();
-        System.out.println("После  commit ");
         session.close();
-        System.out.println("После  close ");
+
+
+        System.out.println("Регистрация прошла успешно ");
 
 
 
