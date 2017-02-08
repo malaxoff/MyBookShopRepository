@@ -1,13 +1,11 @@
 package dao;
 
-import javax.persistence.Basic;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import java.math.BigInteger;
+
+
+import javax.persistence.*;
+//import java.math.BigInteger;
 import java.util.Collection;
-import javax.persistence.GenerationType;  // для      @GeneratedValue(strategy = GenerationType.AUTO)
-import javax.persistence.GeneratedValue;  // для      @GeneratedValue(strategy = GenerationType.AUTO)
+
 
 //Стату пользователя
 
@@ -62,7 +60,7 @@ public class UserStatusesEntity {
 
     private Collection<UsersEntity> usersesByUserStatusId;
 
-    @OneToMany(mappedBy = "userStatusesByUserStatusId")
+    @OneToMany(mappedBy = "userStatusesByUserStatusId", cascade = CascadeType.ALL)                              // добавил cascade = CascadeType.ALL
     public Collection<UsersEntity> getUsersesByUserStatusId() {
         return usersesByUserStatusId;
     }

@@ -13,7 +13,7 @@ import java.util.Scanner;
 public class AppMain {
 
     public static void main(String[] args) {
-                /*
+
         try {
             WellCome.wellCome();
         } catch (Exception e){
@@ -22,9 +22,9 @@ public class AppMain {
         }
 
 
-                          */
 
 
+        /*
         try {
 
 
@@ -49,6 +49,6 @@ public class AppMain {
             e.printStackTrace();
         }
 
-
+                  */
     }
 }

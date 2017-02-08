@@ -16,7 +16,7 @@ public class Registration {
     public static void registration(){
 
 
-    //    UsersEntity newUser = new  UsersEntity();
+
         Scanner scan = new Scanner(System.in);
 
      //сбор данных о пользователе
@@ -60,42 +60,40 @@ public class Registration {
 
         final Integer user_status = 1;
 
-         /*
 
-        // вывод на экран дял проверки
-        System.out.println("Фамилия Имя Отчество :" + fio);
-        System.out.println("Почтовый адрес :" + adress);
-        System.out.println("Номер телефона :" + phone);
-        System.out.println("login :" + login);
-        System.out.println("password :" + password);
-        System.out.println("адрес электронной почты :" + email);
-        System.out.println("user_status :" + user_status);
 
-          */
+
 
          // работа с базой данных
-
-
         Session session = HibernateSessionFactory.getSessionFactory().openSession();
         session.beginTransaction();
 
+        //создаем объект статуса пользователя
+        UserStatusesEntity userStatusesEntity = session.load(UserStatusesEntity.class, user_status);
 
-        UsersEntity newUser = new  UsersEntity();           // создаем объект пользователя
 
+        // создаем объект пользователя
+        UsersEntity newUser = new  UsersEntity();
+
+
+        // заполняем поля пользователя
         newUser.setUserFio(fio);
         newUser.setUserAdress(adress);
         newUser.setUserPhone(phone);
         newUser.setUserLogin(login);
         newUser.setUserPassword(password);
         newUser.setUserMail(email);
-        newUser.setUserStatusId( user_status );
-     //   newUser.setUserStatusesByUserStatusId(new UserStatusesEntity());
+        newUser.setUserStatusesByUserStatusId( userStatusesEntity );     // важно что добавляем status пользователя по выдернутому из главной таблицы объекту
 
 
-        System.out.println("После set-ров ");
-        session.persist(newUser);
-        System.out.println("После persist ");
-        session.saveOrUpdate(newUser);
+
+
+          System.out.println("После set-ров ");
+
+
+
+
+        session.save(newUser);
         System.out.println("После  save ");
         session.getTransaction().commit();
         System.out.println("После  commit ");
