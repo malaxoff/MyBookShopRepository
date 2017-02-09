@@ -5,10 +5,9 @@ package pckgzz.logic.prodavec;
 import dao.PublisherEntity;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
-import org.hibernate.criterion.Order;
+// import org.hibernate.criterion.Order;        для вывода всей базы
 import org.hibernate.criterion.Restrictions;
 import pckgzz.utilz.HibernateSessionFactory;
-
 import java.util.List;
 import java.util.Scanner;
 
@@ -35,6 +34,10 @@ public class ViewPublishersByString {
         Criteria publCriteria = session.createCriteria(PublisherEntity.class);
         List<PublisherEntity> publisher = publCriteria.add(Restrictions.like("nameOfPublisher", str+"%")).list();
 
+
+
+  //     Вывод всей базы
+  //      List <PublisherEntity> publisher = publCriteria.addOrder(Order.asc("idPublisher")).list();
 
 
         // закрываем сессию
