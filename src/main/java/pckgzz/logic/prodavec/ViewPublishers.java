@@ -1,18 +1,20 @@
 package pckgzz.logic.prodavec;
 
-//    Вываливает список издательств
+//    Вываливает весь список издательств
 
-import dao.UsersEntity;
+import dao.PublisherEntity;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
-import org.hibernate.criterion.Restrictions;
+import org.hibernate.criterion.Order;
 import pckgzz.utilz.HibernateSessionFactory;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ViewPublishers {
     public static void viewPublishers() {
 
 
-     /*
+
 
 
 
@@ -20,15 +22,25 @@ public class ViewPublishers {
         Session session = HibernateSessionFactory.getSessionFactory().openSession();
         session.beginTransaction();
 
-        // ищем пользователя
+        // Выводим все издательства в список
+        Criteria publCriteria = session.createCriteria(PublisherEntity.class);
+        List <PublisherEntity> publisher = publCriteria.addOrder(Order.asc("idPublisher")).list();
 
-        Criteria userCriteria = session.createCriteria(UsersEntity.class);
+         // закрываем сессию
+        session.getTransaction().commit();
+        session.close();
 
-        userCriteria.add(Restrictions.eq("userLogin", login));
+        //печатаем список
+        System.out.println("id |  Название ");
+         for (PublisherEntity pbl: publisher) {
+             System.out.println (pbl.getIdPublisher() + " | " + pbl.getNameOfPublisher());
 
-            newUser = (UsersEntity) userCriteria.uniqueResult();
+         }
 
-               */
+        System.exit(0);
+
+
+
 
     }
 }
