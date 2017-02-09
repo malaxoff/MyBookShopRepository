@@ -46,7 +46,7 @@ public class UserMenu {
         switch (choice){
             case '1':
       //          System.out.println("Вы выбрали редактирование учетной записи");
-                ChangeUserAccount.changeUserAccount();
+                ChangeUserAccount.changeUserAccount(u);
                 break;
             case '2':
       //          System.out.println("Вы выбрали просмотр заказов");

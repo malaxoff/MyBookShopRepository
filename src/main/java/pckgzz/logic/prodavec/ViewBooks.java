@@ -21,7 +21,7 @@ public class ViewBooks {
         Scanner scan = new Scanner(System.in);
 
 
-        System.out.print("Введите начальные буквы названия книги      :  ");
+        System.out.print("Введите начальные буквы названия книги с учетом регистра      :  ");
         String str = scan.nextLine();
 
 
