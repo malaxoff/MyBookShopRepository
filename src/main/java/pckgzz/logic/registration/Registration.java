@@ -67,6 +67,7 @@ public class Registration {
         session.beginTransaction();
 
         //Загружаем объект статуса пользователя из базы со статусом 0 - покупатель
+        // Хоро шо бы пере этой процедурой добавить проверку существования статуса пользователя в базе
         UserStatusesEntity userStatusesEntity = session.load(UserStatusesEntity.class, user_status);
 
 
@@ -89,7 +90,7 @@ public class Registration {
         session.close();
 
 
-        System.out.println("Регистрация прошла успешно ... ");
+        System.out.println("Регистрация нового покупателя прошла успешно ... ");
 
         UserMenu.userMenu(newUser);
 
