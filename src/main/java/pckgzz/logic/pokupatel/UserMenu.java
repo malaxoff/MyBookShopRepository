@@ -19,7 +19,7 @@ public class UserMenu {
         try{
           do {
 
-            System.out.println("Пожалуйства выберете необходимый пункт меню :");
+            System.out.println("   Выберете необходимый пункт меню :");
             System.out.println("1) Редактирование учетной записи ");
             System.out.println("2) Просмотр заказов");
             System.out.println("3) Просмотр книг");
@@ -41,27 +41,24 @@ public class UserMenu {
 
 
 
-     //   System.out.println("Вы выбрали редактирование учетной записи    " + u);
-
-
 
 
         switch (choice){
             case '1':
                 System.out.println("Вы выбрали редактирование учетной записи");
-               // Autorisation.autorisation();
+                // реализовать
                 break;
             case '2':
                 System.out.println("Вы выбрали просмотр заказов");
-              //  Registration.registration();
+                // реализовать
                 break;
             case '3':
                 System.out.println("Вы выбрали просмотр книг");
-             //   Registration.registration();
+                // реализовать
                 break;
             case '4':
                 System.out.println("Вы выбрали создание заказа");
-              //  Registration.registration();
+                // реализовать
                 break;
             case '5':
                 System.out.println("Вы выбрали выход");

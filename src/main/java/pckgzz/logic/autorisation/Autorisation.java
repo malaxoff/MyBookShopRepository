@@ -48,7 +48,7 @@ public class Autorisation {
             // если такого пользователя нет то пишем : Нет аткого пользователя
         if ( userCriteria.uniqueResult()== null)
                {
-                   System.out.println("Нет такого пользователя. Попробуйте еще раз. ");
+                   System.out.println("Нет такого пользователя! Попробуйте еще раз. ");
                    System.exit(0);
 
                }    // Доработать. Отправить на повторную попытку
@@ -60,13 +60,13 @@ public class Autorisation {
 
               if (    password.equals(newUser.getUserPassword())   )     {
 
-                       System.out.println("Авторизация прошла успешно ");
+                       System.out.println("Авторизация прошла успешно ... ");
                        userstatus = newUser.getUserStatusId();      // не плохо бы здесь проверять статус пользователя на адекватность
 
               }
 
               else    {
-                  System.out.println("Пароль не верный. Попробуйте еще раз.  ");       // Доработать. Отправить на повторную попытку
+                  System.out.println("Пароль не верный! Попробуйте еще раз.  ");       // Доработать. Отправить на повторную попытку
                   System.exit(0);
               }
 
@@ -82,7 +82,7 @@ public class Autorisation {
         if (userstatus == 0)    {  UserMenu.userMenu(newUser); }
         if (userstatus == 1)    {  SellerMenu.sellerMenu(newUser); }
         if (userstatus == 2)    {  AdminMenu.adminMenu(newUser); }
-      //  if (userstatus != 0 || userstatus != 1 || userstatus != 2)    {  System.out.println("Что то пошло не так со статусом пользователя.  "); }
+
 
 
 

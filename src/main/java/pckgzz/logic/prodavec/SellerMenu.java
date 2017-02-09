@@ -45,23 +45,23 @@ public class SellerMenu {
         switch (choice){
             case '1':
                 System.out.println("Вы выбрали просмотр списка издательств");
-                // Autorisation.autorisation();
+                // реализовать
                 break;
             case '2':
                 System.out.println("Вы выбрали добавить издательство");
-                //  Registration.registration();
+                AddPublisher.addPublisher();
                 break;
             case '3':
                 System.out.println("Вы выбрали просмотр списка книг");
-                //   Registration.registration();
+                // реализовать
                 break;
             case '4':
                 System.out.println("Вы выбрали добавить карточку книги");
-                //  Registration.registration();
+                // реализовать
                 break;
             case '5':
                 System.out.println("Вы выбрали изменение статуса заказа");
-                //  Registration.registration();
+                // реализовать
                 break;
             case '6':
                 System.out.println("Вы выбрали выход");

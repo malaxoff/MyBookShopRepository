@@ -89,7 +89,7 @@ public class Registration {
         session.close();
 
 
-        System.out.println("Регистрация прошла успешно. ");
+        System.out.println("Регистрация прошла успешно ... ");
 
         UserMenu.userMenu(newUser);
 
