@@ -31,11 +31,11 @@ public class WellCome {
 
         switch (choice){
             case '1':
-                System.out.println("Вы выбрали авторизацию");
+  //              System.out.println("Вы выбрали авторизацию");
                 Autorisation.autorisation();
                 break;
             case '2':
-                System.out.println("Вы выбрали регистрацию нового пользователя");
+ //               System.out.println("Вы выбрали регистрацию нового пользователя");
                 Registration.registration();
                 break;
             case '3':

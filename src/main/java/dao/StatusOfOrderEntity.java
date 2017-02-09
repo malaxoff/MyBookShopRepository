@@ -9,15 +9,15 @@ import java.util.Collection;
 @javax.persistence.Table(name = "STATUS_OF_ORDER", schema = "SYSTEM", catalog = "")
 @Entity
 public class StatusOfOrderEntity {
-    private BigInteger idStatus;
+    private Integer idStatus;
 
     @javax.persistence.Column(name = "ID_STATUS", nullable = false, insertable = true, updatable = true, length = 1, precision = 0)
     @Id
-    public BigInteger getIdStatus() {
+    public Integer getIdStatus() {
         return idStatus;
     }
 
-    public void setIdStatus(BigInteger idStatus) {
+    public void setIdStatus(Integer idStatus) {
         this.idStatus = idStatus;
     }
 

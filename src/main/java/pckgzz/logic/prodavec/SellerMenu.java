@@ -45,23 +45,23 @@ public class SellerMenu {
         switch (choice){
 
             case '1':
-                System.out.println("Вы выбрали просмотр списка издательств");
+  //              System.out.println("Вы выбрали просмотр списка издательств");
                 ViewPublishersByString.viewPublishersByString();
                 break;
             case '2':
-                System.out.println("Вы выбрали добавить издательство");
+ //               System.out.println("Вы выбрали добавить издательство");
                 AddPublisher.addPublisher();
                 break;
             case '3':
-                System.out.println("Вы выбрали просмотр списка книг");
+ //               System.out.println("Вы выбрали просмотр списка книг");
                 ViewBooks.viewBooks();
                 break;
             case '4':
-                System.out.println("Вы выбрали добавить карточку книги");
+ //               System.out.println("Вы выбрали добавить карточку книги");
                 AddBook.addBook();
                 break;
             case '5':
-                System.out.println("Вы выбрали изменение статуса заказа");
+ //               System.out.println("Вы выбрали изменение статуса заказа");
                 ChangeOrderStatus.changeOrderStatus();
                 break;
             case '6':

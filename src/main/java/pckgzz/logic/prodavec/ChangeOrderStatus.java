@@ -3,6 +3,7 @@ package pckgzz.logic.prodavec;
 // Изменение статуса заказа продавцом
 
 import dao.OrdersEntity;
+import dao.StatusOfOrderEntity;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
@@ -41,8 +42,6 @@ public class ChangeOrderStatus {
         session.beginTransaction();
 
 
-        OrdersEntity orderEntity  = new OrdersEntity();     // создаем объект издательства
-
         Criteria orderCriteria = session.createCriteria(OrdersEntity.class);
 // далее выбираем строчку из таблицы BooksEntity со значением поля (столбца) idPublisher равным id
         orderCriteria.add(Restrictions.eq("orderId", id));
@@ -56,12 +55,10 @@ public class ChangeOrderStatus {
             // Доработать. Отправить на повторную попытку  ввода id
         }
 
-        else     // в противном случае считаем этот заказ
-        {
+             // в противном случае считываем этот заказ
 
-            orderEntity = (OrdersEntity) orderCriteria.uniqueResult();
 
-        }
+        OrdersEntity orderEntity = (OrdersEntity) orderCriteria.uniqueResult();
 
 
         // **************** вводим новый статус заказа ********************
@@ -70,7 +67,7 @@ public class ChangeOrderStatus {
         String statusStr = scan.next();
 
 
-        Integer status=0;    //  id издательства после "оцифровки"
+        Integer status = 0;    //  id издательства после "оцифровки"
         try {
             status = Integer.valueOf(statusStr);
 
@@ -81,17 +78,32 @@ public class ChangeOrderStatus {
         }         // добавить возврат к повторному введению id
 
 
-        if (status != 0 &&  status != 1 && status != 2 && status != 3)
-        {
-            System.out.println("Неверный статус заказа   !  ");
-            System.exit(0);
 
+     //   ********************** проверяем наличие такого статуса  *********************
+
+
+        Criteria statusOfOrderCriteria = session.createCriteria(StatusOfOrderEntity.class);
+// далее выбираем строчку из таблицы StatusOfOrderEntity со значением поля (столбца) status равным status
+        statusOfOrderCriteria.add(Restrictions.eq("idStatus", status));
+
+        // если такого id заказа нет пишем : Нет такого заказа
+        if ( statusOfOrderCriteria.uniqueResult()== null)
+        {
+
+            System.out.println("Нет такого статуса! Попробуйте еще раз. ");
+            System.exit(0);
+            // Доработать. Отправить на повторную попытку  ввода id
         }
+
+        // в противном случае считаем этот заказ
+
+        StatusOfOrderEntity statusOfOrderEntity = (StatusOfOrderEntity) statusOfOrderCriteria.uniqueResult();
+
+
 
      //  **********************   устанавливаем новый статус ************************
 
-
-        orderEntity.setIdStatus(status);
+        orderEntity.setStatusOfOrderByIdStatus(statusOfOrderEntity);
 
 
     // ****************** сохраняемся и закрываем сессию работы с базой данных ***************

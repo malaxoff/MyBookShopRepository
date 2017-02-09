@@ -45,19 +45,19 @@ public class UserMenu {
 
         switch (choice){
             case '1':
-                System.out.println("Вы выбрали редактирование учетной записи");
+      //          System.out.println("Вы выбрали редактирование учетной записи");
                 ChangeUserAccount.changeUserAccount();
                 break;
             case '2':
-                System.out.println("Вы выбрали просмотр заказов");
+      //          System.out.println("Вы выбрали просмотр заказов");
                 ViewOrders.viewOrders();
                 break;
             case '3':
-                System.out.println("Вы выбрали просмотр книг");
+      //         System.out.println("Вы выбрали просмотр книг");
                 ViewBooks.viewBooks();
                 break;
             case '4':
-                System.out.println("Вы выбрали создание заказа");
+      //          System.out.println("Вы выбрали создание заказа");
                 CreateOrder.createOrder();
                 break;
             case '5':
