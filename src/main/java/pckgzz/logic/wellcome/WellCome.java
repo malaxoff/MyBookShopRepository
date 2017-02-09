@@ -6,6 +6,7 @@ import pckgzz.logic.registration.Registration;
 public class WellCome {
 
     public static void wellCome() throws java.io.IOException{
+        int buyerStatus = 0;
 
 
 
@@ -36,7 +37,8 @@ public class WellCome {
                 break;
             case '2':
  //               System.out.println("Вы выбрали регистрацию нового пользователя");
-                Registration.registration();
+
+                Registration.registration(buyerStatus);
                 break;
             case '3':
                 System.out.println("Вы выбрали выход");

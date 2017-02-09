@@ -11,7 +11,7 @@ import java.util.Scanner;
 // процедура регистрации. по факту регистрации передаем созданного пользователя в меню пользователя.
 
 public class Registration {
-    public static void registration(){
+    public static void registration(int user_status){
 
 
 
@@ -56,7 +56,7 @@ public class Registration {
         String email = scan.next();
 
         // статус покупателя по умолчанию 0 - ноль, 1 - продавец, 2 - админ. Продавцов и админов добавляет админ.
-        final Integer user_status = 0;
+       // final Integer user_status = 0;
 
 
 
