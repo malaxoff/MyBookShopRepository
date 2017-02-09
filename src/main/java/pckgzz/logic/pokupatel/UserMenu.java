@@ -4,8 +4,8 @@ package pckgzz.logic.pokupatel;
 
 
 import dao.UsersEntity;
-import pckgzz.logic.autorisation.Autorisation;
-import pckgzz.logic.registration.Registration;
+import pckgzz.logic.prodavec.ViewBooks;
+
 
 
 public class UserMenu {
@@ -46,19 +46,19 @@ public class UserMenu {
         switch (choice){
             case '1':
                 System.out.println("Вы выбрали редактирование учетной записи");
-                // реализовать
+                ChangeUserAccount.changeUserAccount();
                 break;
             case '2':
                 System.out.println("Вы выбрали просмотр заказов");
-                // реализовать
+                ViewOrders.viewOrders();
                 break;
             case '3':
                 System.out.println("Вы выбрали просмотр книг");
-                // реализовать
+                ViewBooks.viewBooks();
                 break;
             case '4':
                 System.out.println("Вы выбрали создание заказа");
-                // реализовать
+                CreateOrder.createOrder();
                 break;
             case '5':
                 System.out.println("Вы выбрали выход");

@@ -12,7 +12,7 @@ public class ViewPublishers {
     public static void viewPublishers() {
 
 
-
+     /*
 
 
 
@@ -28,7 +28,7 @@ public class ViewPublishers {
 
             newUser = (UsersEntity) userCriteria.uniqueResult();
 
-
+               */
 
     }
 }
