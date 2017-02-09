@@ -60,15 +60,15 @@ public class OrdersEntity {
         this.orderPrice = orderPrice;
     }
 
-    private BigInteger idStatus;
+    private Integer idStatus;
 
     @javax.persistence.Column(name = "ID_STATUS", nullable = false, insertable = false, updatable = false, length = 1, precision = 0)
     @Basic
-    public BigInteger getIdStatus() {
+    public Integer getIdStatus() {
         return idStatus;
     }
 
-    public void setIdStatus(BigInteger idStatus) {
+    public void setIdStatus(Integer idStatus) {
         this.idStatus = idStatus;
     }
 
