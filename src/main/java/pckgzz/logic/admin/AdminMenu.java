@@ -1,8 +1,6 @@
 package pckgzz.logic.admin;
 
 import dao.UsersEntity;
-import pckgzz.logic.autorisation.Autorisation;
-import pckgzz.logic.registration.Registration;
 
 // меню админа
 public class AdminMenu {

@@ -25,14 +25,18 @@ public class AddBook {
         System.out.print("Введите авторов книги   ( пока на Английском :-) )      :  ");
         String autors = scan.nextLine();
 
+        Scanner scan1 = new Scanner(System.in);
+
         //название книги
         System.out.print("Введите название книги  ( пока на Английском :-) )      :  ");
-        String title = scan.nextLine();
+        String title = scan1.nextLine();
+
+        Scanner scan2 = new Scanner(System.in);
 
         //издательство
         // Добавить выбор издательства по имени, чтоб id заабивалось автоматом
         System.out.print("Введите id издательства                                 :  ");
-        String idStr = scan.next();
+        String idStr = scan2.next();
 
 
 
@@ -48,35 +52,39 @@ public class AddBook {
 
 
 
-
+        Scanner scan3 = new Scanner(System.in);
 
         // описание книги
         System.out.print("Введите описание книги   ( пока на Английском :-) )     :  ");
-        String description = scan.next();
+        String descript = scan3.nextLine();
+
+
+        Scanner scan4 = new Scanner(System.in);
 
 
         //цена книги
         System.out.print("Введите цену книги                                      :  ");
-        String priceStr = scan.next();
+        String priceStr = scan4.next();
 
 
-        int price=0;    //    цена книги  после "оцифровки"
+        Integer price = 0;    //    цена книги  после "оцифровки"
+
         try {
             price = Integer.valueOf(priceStr);
 
         }catch (NumberFormatException e) {
 
-            System.out.println("Неверный форматцены книги    !  ");
+            System.out.println("Неверный формат цены книги    !  ");
             e.printStackTrace();
         }         // добавить возврат к повторному введению цены
 
 
 
-
+        Scanner scan5 = new Scanner(System.in);
 
         //количество штук на складе
         System.out.print("Введите количество книг на складе                       :  ");
-        String amountStr = scan.next();
+        String amountStr = scan5.next();
 
 
         int amount=0;    //     количество книг   после "оцифровки"
@@ -132,7 +140,7 @@ public class AddBook {
         newBook.setAutors(autors);
         newBook.setBookTitle(title);
         newBook.setPublisherByIdPublisher(publisherEntity);     //   важно что добавляем id издательства по выдернутому из главной таблицы объекту по введенному id
-        newBook.setBookDescription(description);
+        newBook.setBookDescription(descript);
         newBook.setBookPrice(price);
         newBook.setBookAmount(amount);
 

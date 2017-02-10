@@ -4,8 +4,7 @@ package pckgzz.logic.prodavec;
 
 
 import dao.UsersEntity;
-import pckgzz.logic.autorisation.Autorisation;
-import pckgzz.logic.registration.Registration;
+
 
 
 public class SellerMenu {

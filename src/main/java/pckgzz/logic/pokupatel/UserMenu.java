@@ -50,7 +50,7 @@ public class UserMenu {
                 break;
             case '2':
       //          System.out.println("Вы выбрали просмотр заказов");
-                ViewOrders.viewOrders();
+                ViewOrders.viewOrders(u);
                 break;
             case '3':
       //         System.out.println("Вы выбрали просмотр книг");
@@ -58,7 +58,7 @@ public class UserMenu {
                 break;
             case '4':
       //          System.out.println("Вы выбрали создание заказа");
-                CreateOrder.createOrder();
+                CreateOrder.createOrder(u);
                 break;
             case '5':
                 System.out.println("Вы выбрали выход");
