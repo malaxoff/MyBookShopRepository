@@ -33,6 +33,7 @@ public class ViewOrders {
         Criteria orderCriteria = session.createCriteria(OrdersEntity.class);
         List <OrdersEntity> order = orderCriteria.add(Restrictions.like("userId", id)).list();  // дописать упорядочивание
 
+
 //*************** по полученному списку заказов ORDER для каждого заказа формируем список заказанных книг ***************
 
 
@@ -45,21 +46,16 @@ public class ViewOrders {
 
             System.out.println (" Заказ № :" +  ord.getOrderId() + "  Дата : " + ord.getOrderDate() + "  Цена :  " + ord.getOrderPrice() + "  Статус :  " + ord.getIdStatus());
 
-                               for (ContentOfOrderEntity coo: content) {
-                                         System.out.println ("         id  книги  :" +  coo.getBookId() + "  количество : " + coo.getAmountOfEachBook());
+                               for (ContentOfOrderEntity cont: content) {
+
+                                         System.out.println ("         id  книги  :" +  cont.getBookId() + "  количество : " + cont.getAmountOfEachBook());
 
                                }
-
 
 
         }
 
 
-
-
-
-        //     Вывод всей базы
-        // List<BooksEntity> book = bookCriteria.addOrder(Order.asc("bookId")).list();
 
         // закрываем сессию
         session.getTransaction().commit();
