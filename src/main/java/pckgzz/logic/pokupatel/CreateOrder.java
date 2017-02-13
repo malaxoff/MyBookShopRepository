@@ -2,9 +2,7 @@ package pckgzz.logic.pokupatel;
 
 // Создание заказа
 
-import dao.BooksEntity;
-import dao.PublisherEntity;
-import dao.UsersEntity;
+import dao.*;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
@@ -26,23 +24,96 @@ public class CreateOrder {
         //*************  Сбор данных о новом заказе  ************************************************
 
         // id заказа генериться автоматически  благодаря seq_ord
-        // id заказа генериться автоматически  благодаря seq_cont
-        // id пользователя берем из объекта u
-
-          int userId = u.getUserId();
-
 
         // генерим дату заказа
         java.util.Date order_date = new java.util.Date();
-        //  id_status при создании заказа = 0   - ждет оплаты
+
+        // стоимость заказа. нужно было бы поставить этот атрибут в таблицу "список заказа", поэтому на
+        // этапе создания заказа это поле будет равно 1. (т.к. не может быть равно нулю). В процессе добавления книг общитаю стоимость заказа
+        // с четом количества книг и по окончанию добавления книг в заказ запишу результат в таблицу.
+        int orderPrice = 1;
+
+
+        //  order_status при создании заказа = 0   - заказан и ждет оплаты
+        int orderStatus = 0;
+
+
+
+        // ***********  запускаем сессию *****************************************
+
+        Session session = HibernateSessionFactory.getSessionFactory().openSession();
+        session.beginTransaction();
+
+
+        // ****************** получаем объект статуса заказа по orderStatus = 0 ************
+
+
+
+
+        StatusOfOrderEntity statusOfOrder  = new  StatusOfOrderEntity();     // создаем объект статуса заказа
+
+        Criteria statusCriteria = session.createCriteria(StatusOfOrderEntity.class);
+// далее выбираем строчку из таблицы StatusOfOrderEntity со значением поля (столбца) id_status равным  int orderStatus = 0;
+        statusCriteria.add(Restrictions.eq("idStatus", orderStatus));
+
+
+        // если такого статуса нет пишем : Нет такого статуса
+        if ( statusCriteria.uniqueResult()== null)
+        {
+            System.out.println("Нет такого статуса! Попробуйте еще раз. ");
+            System.exit(0);
+            // Доработать. Отправить на повторную попытку  ввода издательства
+        }
+
+        else     // в противном случае получаем наш объект
+        {
+
+            statusOfOrder = (StatusOfOrderEntity) statusCriteria.uniqueResult();
+
+        }
+
+
+
+     // ***************   добавляем сам заказ (без списка книг) *****************************
+
+
+        // создаем объект заказа
+        OrdersEntity newOrder = new   OrdersEntity();
+
+
+        // заполняем поля класса заказ
+        newOrder.setUsersByUserId(u);
+        newOrder.setOrderDate(order_date);
+        newOrder.setOrderPrice(orderPrice);    // не рассчитал, нужно было запихнуть это поле в список заказа , пока ноль
+        newOrder.setStatusOfOrderByIdStatus(statusOfOrder);
+
+
+
+        session.save( newOrder );
+        session.getTransaction().commit();
+
+
+// ***************** добавление списка  книг в заказ ***********************************************
+
+
 
         boolean SoglasieNaZakazKnigi = true;
+        orderPrice = 0;    // обнуляем стоимость заказа
 
          // добавление книг в цикле, потому что за ранее не знаем сколько их будет в заказе
+
+
 
         do {
 
 
+
+            // ***********  запускаем сессию *****************************************
+
+            session.beginTransaction();
+
+
+                 // id списка заказа генериться автоматически  благодаря seq_cont
 
                  //    вводим id книги
                  System.out.print("Введите id книги      :  ");
@@ -60,10 +131,6 @@ public class CreateOrder {
                  }         // добавить возврат к повторному введению id
 
 
-                 // ***********  запускаем сессию *****************************************
-
-                 Session session = HibernateSessionFactory.getSessionFactory().openSession();
-                 session.beginTransaction();
 
                  // проверяем существование такого id в базе
                  // тут же выдергиваем остаток книг
@@ -80,10 +147,12 @@ public class CreateOrder {
                     // Доработать. Отправить на повторную попытку  ввода издательства
                   }
 
+
+
                    // создаем объект книги
                    BooksEntity book = (BooksEntity) bookIdCriteria.uniqueResult();
 
-                   // тут же выдергиваем остаток книг
+                   //  выдергиваем остаток книг
                    int bookAmountOnBase = book.getBookAmount();
 
                    //проверяем остаток на адекватность
@@ -91,6 +160,8 @@ public class CreateOrder {
                            System.out.println(" На складе не осталось таких книг   !  ");
                            System.exit(0);
                    }
+
+
 
 
                    // вводим количество книг, которое хотим приобрести
@@ -115,12 +186,32 @@ public class CreateOrder {
                            System.exit(0);
                    }
 
-                   // реализовать что бы  заказанные книги уходили из остатка на 3 дня в резерв (ждали оплаты)
-                   // а затем возвращались через 3 дня обратно, если оплата не поступили
+                   // необходимо реализовать что бы  заказанные книги уходили из остатка на 3 дня в резерв (ждали оплаты)
+                   // а затем возвращались через 3 дня обратно на остатки, если оплата не поступила.
                    // именно поэтому введен пункт меню у продавца "изменение статуса заказа".
 
 
-                   // спрашиваем будут ли еще книги в заказе
+                  //  сохранение книги в таблицу *************************************************************************
+                   // создаем объект "список"
+                   ContentOfOrderEntity content  = new ContentOfOrderEntity();
+
+                   // id генериться автоматом
+                   content.setOrdersByOrderId(newOrder);
+                   content.setBooksByBookId(book);
+                   content.setAmountOfEachBook(bookAmount);
+
+
+                   //  ***** рассчитываем и сохраняем стоимость заказа ***************************************************
+
+                   orderPrice = orderPrice + (bookAmount * book.getBookPrice());
+
+                   session.save( content );
+                   session.getTransaction().commit();
+
+
+
+
+                   //  ********   спрашиваем будут ли еще книги в заказе  *******************************************
 
                    char choice = 'n';    // по умолчанию выход
                    char ignore;
@@ -164,44 +255,22 @@ public class CreateOrder {
 
 
 
+        session.beginTransaction();
 
+        newOrder.setOrderPrice(orderPrice);    // не рассчитал, нужно было запихнуть это поле в список заказа
 
+        session.save( newOrder );      // сохраняем новую цену заказа
 
-        //****************************************************************************************************
-        // работа с базой данных
-
-
-      /*
-
-        PublisherEntity publisherEntity  = new PublisherEntity();     // создаем объект издательства
-
-
-
-        // создаем объект книги
-        BooksEntity newBook = new   BooksEntity();
-
-
-        // заполняем поля класса книга
-        newBook.setAutors(autors);
-        newBook.setBookTitle(title);
-        newBook.setPublisherByIdPublisher(publisherEntity);     //   важно что добавляем id издательства по выдернутому из главной таблицы объекту по введенному id
-        newBook.setBookDescription(descript);
-        newBook.setBookPrice(price);
-        newBook.setBookAmount(amount);
-
-
-        // сохраняемся и закрываем сессию
-        session.save( newBook );
         session.getTransaction().commit();
         session.close();
 
 
-        System.out.println("Новая книга зарегистрирована успешно ... ");
+        System.out.println("Новый заказ зарегистрирован успешно ... ");
         System.exit(0);
 
 
 
-           */
+
 
 
 
